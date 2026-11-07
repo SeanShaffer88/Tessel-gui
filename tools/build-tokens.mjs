@@ -138,6 +138,7 @@ function dtcg() {
       letterSpacing: Object.fromEntries(Object.entries(tokens.type.letterSpacing).filter(([k]) => k !== 'unit').map(([k, v]) => [k, { $type: 'dimension', $value: `${v}em` }])),
       densityRoles: tokens.type.densityRoles,
     },
+    shortcuts: tokens.shortcuts,
     motion: { short: ms(tokens.motion.shortTransition), panel: ms(tokens.motion.panelTransition), maximum: ms(tokens.motion.maximumTransition), duration: Object.fromEntries(Object.entries(tokens.motion.duration).map(([k, v]) => [k, ms(v)])), easing: Object.fromEntries(Object.entries(tokens.motion.easing).map(([k, v]) => [k, { $type: 'cubicBezier', $value: v }])) },
     inspector: { width: dim(tokens.compartments.inspectorWidth), min: dim(tokens.compartments.inspectorMin), max: dim(tokens.compartments.inspectorMax) },
   }, null, 2) + '\n';

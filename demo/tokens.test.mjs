@@ -331,3 +331,24 @@ test('type scale is ordered and its density roles resolve to real sizes', () => 
   const css = readFileSync(new URL('./tokens.css', import.meta.url), 'utf8');
   for (const [name, px] of Object.entries(size)) assert.ok(css.includes(`--font-size-${name}: ${px}px;`), name);
 });
+
+test('shortcut bindings are complete, unique per platform and avoid reserved OS keys', () => {
+  const { reserved, required, neverOverride, hintBar, palette } = tokens.shortcuts;
+  const all = [...reserved, ...required];
+  assert.ok(neverOverride.length >= 3);
+  assert.equal(new Set(all.map(item => item.id)).size, all.length, 'unique ids');
+  for (const platform of ['windows', 'macos', 'linux']) {
+    const keys = all.map(item => item[platform]);
+    assert.ok(keys.every(Boolean), `${platform} bindings present`);
+    assert.equal(new Set(keys).size, keys.length, `${platform} bindings are unique`);
+  }
+  for (const item of all) {
+    assert.ok(!/Ctrl/.test(item.macos), `${item.id} uses Cmd on macOS`);
+    assert.ok(!/Alt\+Tab|Alt\+F4|Win/.test(item.windows), `${item.id} avoids OS keys`);
+    assert.ok(!/^Ctrl\+[CVX]$/.test(item.windows), `${item.id} avoids clipboard keys`);
+  }
+  assert.equal(reserved.find(item => item.id === 'palette').windows, 'Ctrl+K');
+  assert.ok(hintBar.maxItems <= 6);
+  assert.equal(palette.visibleRows, 8);
+  assert.equal(palette.fuzzy && palette.recentFirst && palette.showShortcut, true);
+});

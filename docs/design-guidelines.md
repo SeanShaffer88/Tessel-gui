@@ -7,7 +7,7 @@ A dense, tactile standard for long-session desktop software of any kind: editors
 1. **One dominant region per view.** The task decides which region leads. Give it 55–70% of the width and let the rest support it. Equal columns signal that no one decided.
 2. **Crimson means "here, now."** At most one crimson element per region: the primary action, the selection marker, or the active-region rule. Never for data series, syntax, or decoration.
 3. **Structure from edges, state from fills.** Compartments are separated by a 1px `edge` border. Luminance steps only mark hover and selection.
-4. **Every task has a keyboard path** and a visible shortcut. Ctrl/⌘+K opens commands.
+4. **Every task has a keyboard path** and a visible shortcut. Ctrl/⌘+K opens commands. Bindings and palette rules are in [shortcuts](shortcuts.md).
 5. **Density follows the component, not the app.** See [density](#density).
 6. **Honest status.** Real operation names, real units, real cancel. Pair color with text or shape.
 7. **Static by default.** No ambient motion. User-triggered transitions stay under 200 ms and respect reduced motion.
