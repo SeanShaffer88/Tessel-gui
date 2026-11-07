@@ -2,7 +2,7 @@
 
 Releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
-## Unreleased
+## 1.1.0 · 2026-11-07
 
 - Motion: `motion.duration` roles (hover 80, press 60, expand 160, drawer 180, toast 120 ms), `motion.easing` (`standard`, `exit`), `stagger`, `reducedDuration`, allowed and forbidden lists, `docs/motion.md`, exports for CSS, DTCG, XAML, Rust, Slint and Godot, and a token test.
 - Typography: `caption` (11), `dense` (12) and `display` (32) sizes, line height per role, letter spacing, numeric rule, density roles, truncation rules, `docs/typography.md`, CSS font-size and line-height variables, other exports and a token test. Density now changes the type role of rows and controls; reading text stays at body size.

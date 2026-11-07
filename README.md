@@ -88,6 +88,8 @@ Image and video tools use the Graphite preset so no tinted chrome sits next to t
 
 See [workspace patterns](docs/workspaces.md) for modes, panels, value controls, timelines and meters.
 
+Cross-cutting rules: [motion](docs/motion.md), [typography](docs/typography.md), [shortcuts and the command palette](docs/shortcuts.md) and [feedback patterns](docs/feedback.md).
+
 
 ## Design decisions
 
