@@ -1,0 +1,76 @@
+name: Validate and publish
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  validate:
+    name: Node and token checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: '26'
+      - name: Check script syntax
+        run: find demo tools -type f \( -name '*.js' -o -name '*.mjs' \) -print0 | xargs -0 -n 1 node --check
+      - name: Check generated token outputs are current
+        run: node tools/build-tokens.mjs --check
+      - name: Compile Rust token export
+        run: rustc --edition 2021 --crate-type lib dist/tessel.rs -o "$RUNNER_TEMP/libtessel.rlib"
+      - name: Check XAML exports are well-formed
+        run: for f in dist/*.xaml; do python3 -c 'import sys, xml.dom.minidom as m; m.parse(sys.argv[1])' "$f"; done
+      - name: Test interaction state and token contrast
+        run: node --test
+      - name: Stage site files
+        run: |
+          mkdir -p _site/demo/portableforge _site/demo/categories _site/docs _site/assets
+          cp -- index.html LICENSE _site/
+          cp -- demo/index.html demo/app.js demo/state.mjs demo/palette.mjs demo/style.css demo/tokens.css demo/palette.css demo/icons.svg _site/demo/
+          cp -- demo/categories/index.html demo/categories/style.css _site/demo/categories/
+          cp -- demo/portableforge/index.html demo/portableforge/app.mjs demo/portableforge/state.mjs demo/portableforge/style.css _site/demo/portableforge/
+          cp -- assets/tessel-wood-grain.svg _site/assets/
+          cp -- docs/tokens.json _site/docs/
+          mkdir -p _site/dist && cp -- dist/* _site/dist/
+      - name: Check the staged PortableForge reference in Chrome
+        run: |
+          google-chrome --version
+          node tools/verify-reference.mjs --root _site
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish the validated artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

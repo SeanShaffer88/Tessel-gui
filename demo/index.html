@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-theme="system" data-accent="crimson" data-density="auto">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Workspace · Tessel interaction reference</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="palette.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to tasks</a>
+<header class="masthead"><div><span class="brand">Tessel <span aria-hidden="true">∷</span></span><span class="eyebrow">Interaction reference / 02</span></div><span class="badge">Local simulation</span></header>
+<div class="app-shell">
+  <nav class="navigation" aria-label="Workspace sections">
+    <p class="eyebrow">Workspace</p>
+    <a href="#main" aria-current="page"><svg aria-hidden="true"><use href="icons.svg#tasks"/></svg>Tasks <span class="count">03</span></a>
+    <a href="#projects"><svg aria-hidden="true"><use href="icons.svg#project"/></svg>Projects</a>
+    <button id="show-settings" aria-controls="settings" aria-expanded="false"><svg aria-hidden="true"><use href="icons.svg#settings"/></svg>Settings</button>
+    <section id="projects"><h2>Current project</h2><p>Interface foundations</p><p class="muted">Three review tasks. All names and activity are fictional.</p></section>
+    <p class="nav-note">Clarity in every compartment.</p>
+  </nav>
+  <main id="main" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow">Interface foundations / Tasks</p><h1>Workspace</h1><p class="muted">Review the prototype, validate assets, prepare the handoff.</p></div>
+      <div class="workspace-actions">
+        <button id="show-commands" type="button" aria-haspopup="dialog" aria-controls="command-palette" aria-keyshortcuts="Control+K Meta+K">Commands <kbd aria-hidden="true">Ctrl/⌘+K</kbd></button>
+        <button id="show-details" aria-controls="inspector" aria-expanded="true"><svg aria-hidden="true"><use href="icons.svg#details"/></svg>Details</button>
+      </div>
+    </div>
+    <div class="work-area" id="work-area">
+      <div class="primary-work">
+        <section class="panel" aria-labelledby="tasks-heading">
+          <div class="section-heading"><h2 id="tasks-heading">Tasks</h2><span class="muted small">3 in this project</span></div>
+          <table><caption class="sr-only">Fictional project tasks; select a task to inspect it.</caption><thead><tr><th scope="col">Task</th><th scope="col">Status</th></tr></thead>
+          <tbody><tr class="selected"><td><button class="task-select" data-task="0" aria-pressed="true">Review prototype</button><span class="task-meta">Design · Avery</span></td><td><span class="status info">In review</span></td></tr>
+          <tr><td><button class="task-select" data-task="1" aria-pressed="false">Validate assets</button><span class="task-meta">Quality · Morgan</span></td><td><span class="status warning">Needs check</span></td></tr>
+          <tr><td><button class="task-select" data-task="2" aria-pressed="false">Prepare handoff</button><span class="task-meta">Delivery · Jules</span></td><td><span class="status">Ready</span></td></tr></tbody></table>
+        </section>
+        <section class="panel simulation" aria-labelledby="simulation-heading">
+          <div class="section-heading"><h2 id="simulation-heading">Prepare preview</h2><span class="badge">Simulated</span></div>
+          <p class="muted">A local progress example. No files are processed or uploaded.</p>
+          <div class="progress-heading"><span id="job-status" role="status">Ready</span><output id="percentage" for="job-progress">0%</output></div>
+          <progress id="job-progress" max="100" value="0" aria-label="Simulated preview progress">0%</progress>
+          <div class="action-grid"><button class="primary" id="start"><svg aria-hidden="true"><use href="icons.svg#play"/></svg><span>Start simulation</span></button><button id="pause" disabled><svg aria-hidden="true"><use href="icons.svg#pause"/></svg><span>Pause</span></button><button id="cancel" disabled><svg aria-hidden="true"><use href="icons.svg#cancel"/></svg><span>Cancel</span></button></div>
+        </section>
+        <section class="panel" aria-labelledby="examples-heading"><h2 id="examples-heading">Feedback & recovery</h2><p class="muted small">Choose an example; these controls never test a real connection.</p>
+          <label>Example state<select id="example"><option value="normal">Validation</option><option value="empty">Empty</option><option value="offline">Offline</option><option value="error">Error</option></select></label>
+          <div id="validation-example"><form id="name-form" novalidate><label for="workspace-name">Workspace name</label><input id="workspace-name" maxlength="60" aria-describedby="name-help name-error" value="Interface foundations" required><p id="name-help" class="muted small">Use at least 3 characters.</p><p id="name-error" class="error-text" hidden>Enter a name with at least 3 characters.</p><button type="submit">Validate name</button></form></div>
+          <div id="recovery-example" hidden><h3 id="recovery-title"></h3><p id="recovery-copy"></p><button id="retry">Retry example</button></div>
+          <p id="feedback" class="small" role="status"></p>
+        </section>
+      </div>
+      <div id="resize" role="separator" tabindex="0" aria-label="Details width" aria-controls="inspector" aria-orientation="vertical" aria-valuemin="240" aria-valuemax="420" aria-valuenow="300" aria-valuetext="300 pixels" title="Drag, or use Left/Right arrows; Home/End set limits"></div>
+      <div id="inspector-slot"><aside class="panel inspector" id="inspector" aria-labelledby="details-title">
+        <div class="section-heading"><h2 id="details-title">Details</h2><button id="close-details">Collapse</button></div>
+        <p class="eyebrow">Selected task</p><h3 id="task-title">Review prototype</h3><p id="task-description">Check hierarchy, keyboard access, and readable task states before handoff.</p>
+        <dl><dt>Owner</dt><dd id="task-owner">Avery</dd><dt>Project</dt><dd>Interface foundations</dd><dt>Mode</dt><dd>Fictional review</dd></dl>
+        <div class="note"><svg aria-hidden="true"><use href="icons.svg#info"/></svg><p>Selection stays available when this compartment is collapsed.</p></div>
+        <p class="small muted" id="resize-help">Resize with the divider: Left/Right, Home/End. Width is saved; Reset layout restores 300 pixels.</p>
+      </aside></div>
+    </div>
+    <footer><svg aria-hidden="true"><use href="icons.svg#check"/></svg>Local reference · No account, network service, or background job <a href="https://github.com/SeanShaffer88/TesselGUI/blob/main/docs/verification.md">Verification limits</a></footer>
+  </main>
+  <div id="settings-slot" hidden><aside class="settings panel" id="settings" aria-labelledby="settings-heading">
+    <div class="section-heading"><h2 id="settings-heading">Settings</h2><div class="button-row"><button id="pin-settings" aria-pressed="false">Pin</button><button id="close-settings">Close</button></div></div>
+    <p id="settings-mode" class="small muted"></p>
+    <nav class="settings-sections" aria-label="Settings sections">
+      <button data-section="appearance" aria-controls="settings-appearance" aria-current="page">Appearance</button>
+      <button data-section="layout" aria-controls="settings-layout">Layout</button>
+      <button data-section="shortcuts" aria-controls="settings-shortcuts">Shortcuts</button>
+    </nav>
+    <section id="settings-appearance" aria-labelledby="appearance-title">
+      <h3 id="appearance-title">Appearance</h3><p class="small muted">Changes apply immediately.</p>
+      <div class="settings-fields">
+        <label>Theme<select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+        <label>Accent color<select id="accent"><option value="crimson">Crimson</option><option value="blue">Blue</option><option value="teal">Teal</option><option value="graphite">Graphite</option></select></label>
+        <label>Density<select id="density"><option value="auto" selected>Per component</option><option value="compact">Compact</option><option value="comfortable">Comfortable</option><option value="touch">Touch</option></select></label>
+        <label class="check-label"><input id="effects" type="checkbox"> Decorative edge</label>
+      </div>
+    </section>
+    <section id="settings-layout" aria-labelledby="layout-title" hidden>
+      <h3 id="layout-title">Layout</h3>
+      <form id="width-form" novalidate>
+        <label for="inspector-width">Details width (CSS pixels)</label>
+        <input id="inspector-width" type="number" min="240" max="420" step="1" value="300" required aria-describedby="width-help width-error">
+        <p id="width-help" class="small muted">240–420 pixels. Apply commits the width. Closing Settings keeps your draft for this visit.</p>
+        <p id="width-error" class="error-text" hidden>Enter a whole number from 240 to 420.</p>
+        <p id="width-status" class="small" role="status">Width matches the workspace.</p>
+        <div class="button-row"><button class="primary" id="apply-width" type="submit" disabled>Apply</button><button id="cancel-width" type="button" disabled>Cancel changes</button></div>
+      </form>
+      <div class="settings-reset"><h3>Reset workspace layout</h3><p class="small muted">Restores the committed width and expanded Details. A pending width draft stays available.</p><button id="reset-layout"><svg aria-hidden="true"><use href="icons.svg#reset"/></svg>Reset layout</button></div>
+    </section>
+    <section id="settings-shortcuts" aria-labelledby="shortcuts-title" hidden>
+      <h3 id="shortcuts-title">Shortcuts</h3>
+      <dl class="shortcuts"><dt>Tab / Shift+Tab</dt><dd>Move between available controls.</dd><dt>Enter / Space</dt><dd>Activate a focused button.</dd><dt>Ctrl+K / ⌘+K</dt><dd>Open Commands from the workspace when no dialog or editable field has focus. The visible Commands button also works when the browser reserves the shortcut.</dd><dt>Up / Down</dt><dd>In Commands, move between available results. Home and End jump to the first and last result while a result has focus.</dd><dt>Enter in command search</dt><dd>Run the first available match.</dd><dt>Escape</dt><dd>Dismiss the active dialog, or close Settings while focus is inside its drawer.</dd><dt>Left / Right</dt><dd>With the desktop Details divider focused, expand / shrink by 10 pixels.</dd><dt>Home / End</dt><dd>With the divider focused, set 240 / 420 pixels.</dd></dl>
+    </section>
+    <p class="muted small" id="storage-status">Only display and settings navigation preferences are saved on this browser.</p>
+  </aside></div>
+</div>
+<dialog id="settings-dialog" aria-labelledby="settings-heading"><div id="settings-modal-slot"></div></dialog>
+<dialog id="details-dialog" aria-labelledby="details-title"><div id="drawer-slot"></div></dialog>
+<dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-copy"><h2 id="reset-title">Reset workspace layout?</h2><p id="reset-copy">Restore the details width and show the inspector. Theme, accent color, density, and effects stay as selected.</p><form method="dialog" class="button-row"><button value="cancel" autofocus>Keep layout</button><button value="reset" class="destructive">Reset layout</button></form></dialog>
+<dialog id="command-palette" aria-labelledby="command-title">
+  <div class="section-heading">
+    <h2 id="command-title">Command palette</h2>
+    <button id="close-commands" type="button">Close</button>
+  </div>
+  <label for="command-search">Search commands</label>
+  <input id="command-search" type="search" aria-describedby="command-help" maxlength="100" autocomplete="off" autofocus>
+  <p id="command-help" class="small muted">Use Up or Down to choose a result, Enter to run it, or Escape to close.</p>
+  <p id="command-status" class="small muted" role="status"></p>
+  <ul id="command-results">
+    <li><button type="button" data-command="show-settings">Open settings</button></li>
+    <li><button type="button" data-command="show-details">Show task details</button></li>
+    <li><button type="button" data-command="start">Start simulation</button></li>
+    <li><button type="button" data-command="pause">Pause simulation</button></li>
+    <li><button type="button" data-command="cancel">Cancel simulation</button></li>
+  </ul>
+</dialog>
+<noscript><p class="panel">JavaScript is required for this interaction reference. No simulation starts without it.</p></noscript>
+</body></html>
