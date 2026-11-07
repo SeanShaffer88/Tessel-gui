@@ -61,6 +61,10 @@ Density is per component class. [Tokens](tokens.json) hold the numbers.
 
 A user can override the whole app in Settings (Per component, Compact, Comfortable, Touch). Density changes spacing, never type size. Keep 6 px minimum between independent controls (8 default), 12–16 between groups, 24 between sections. Narrow or coarse-pointer contexts raise targets to 44 px.
 
+## Motion
+
+User-triggered transitions use the duration roles and easing tokens in [motion](motion.md), stay under 200 ms and respect reduced motion. Nothing animates while idle.
+
 ## Typography
 
 Windows: Segoe UI. macOS and Linux use the system UI font (`system-ui`). Monospace: Cascadia Mono, then Consolas, then the platform default. Body is 16 CSS px at the default text size and follows user scaling. Weight and placement set hierarchy before color or glow. Monospace is for code, timecodes and aligned technical values only.
