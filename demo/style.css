@@ -105,7 +105,7 @@ footer { column-gap:16px; row-gap:8px; }
   }
 }
 
-/* Revision 6. Crimson primary, structural edges, per-class density, and the grid signature. */
+/* Revision 1. Crimson primary, structural edges, per-class density, and the grid signature. */
 :root { --row:1.75rem; }
 :root[data-density=compact] { --row:1.75rem; }
 :root[data-density=comfortable] { --row:2.25rem; }

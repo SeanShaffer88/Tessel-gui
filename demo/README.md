@@ -1,6 +1,6 @@
 # Workspace interaction reference
 
-A small fictional task workspace demonstrates Tessel revision 6 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files under the MIT license (documentation and images are CC BY 4.0). [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Licenses](../ATTRIBUTION.md)
+A small fictional task workspace demonstrates Tessel revision 1 with native HTML, CSS, JavaScript modules, and original local SVG icons. It runs from static files under the MIT license (documentation and images are CC BY 4.0). [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Licenses](../ATTRIBUTION.md)
 
 ## Run locally
 
@@ -42,11 +42,7 @@ node --check demo/palette.mjs
 
 Node's standard test runner covers hostile preference data and lifecycle invariants. These tests do not establish browser layout, pointer capture, focus containment, assistive technology, or performance. Follow [the runtime checklist](../docs/verification.md) before claiming those behaviors are verified. This is an educational interaction reference, not a certified accessible component library.
 
-## Revision 3 materials
-
-Revision 3 explored opaque matte compartments, tactile rims, and inset fields. Revision 5 refines those ideas with three OKLCH elevation levels a crimson primary action, and 1px structural edges. The task table stays flat, and crimson marks focus, selection, or a labeled destructive cue. [Current materials](../docs/materials.md) · [CSS tokens](tokens.css) · [JSON tokens](../docs/tokens.json)
-
-## Revision 4 Settings and action layout
+## Settings and action layout
 
 Open Settings from navigation. The right-edge drawer contains focus while it is modal. At 1640 CSS pixels and above, Pin reserves a nonmodal column and Unpin returns to the modal drawer. A saved pin preference resumes when enough space returns. Close and Escape retain the selected section and width draft. Opening focuses Close. Dismissal returns focus to Settings. Breakpoint relocation preserves focus, with Close as fallback for a newly disabled Pin control.
 
@@ -55,6 +51,3 @@ Appearance changes immediately. In Layout, edit Details width and choose Apply t
 Start simulation, Pause/Resume, and Cancel use an auto-fit Grid, stretching to fill every occupied row in source order. No filler actions are added. Distinct grouped controls retain 8px spacing with a 6px minimum. Related groups use 16px and sections use 24px. Checkbox labels and button icons are parts of composite controls. Target heights remain 32/40/48px, with at least 44px on narrow or coarse-pointer layouts. The [revision 4 rules](../docs/design-guidelines.md#responsive-controls-and-settings--revision-4) explain the same-window extensive-settings pattern and staged transactions.
 
 Preference migration and field validation have standard-library unit tests. Refer to the verification record for actual runtime coverage and outstanding checks. [Revision 4 verification](../docs/verification.md#revision-4-verification) · [Revision 5 verification](../docs/verification.md#revision-5-verification)
-
-## Workspace modes demo
-

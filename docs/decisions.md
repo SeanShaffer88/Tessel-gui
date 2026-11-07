@@ -1,6 +1,6 @@
 # Decisions
 
-Design ideas that came up while writing revision 6, and what the standard does with each. The test: does it help a long-session tool of any category, without breaking anything else?
+Design ideas that came up while writing revision 1, and what the standard does with each. The test: does it help a long-session tool of any category, without breaking anything else?
 
 ## Adopted
 
@@ -59,18 +59,3 @@ Patterns from multi-mode video, audio, image and media tools, kept only where th
 | Loud brand colors and gradients in chrome | Declined. Content is colorful, chrome is not |
 | Modal dialogs for ordinary settings | Declined in favor of panels and drawers |
 | Unlimited modes or nested pages | Declined. Past nine modes, use groups and the command palette |
-
-## Revision 6 changes in response to review
-
-| Finding | Change |
-| --- | --- |
-| Accent fill measured 1.5:1 against surfaces | The primary action is now a brighter crimson that reaches 3:1 on every surface. Deep `#76172A` is limited to large tinted regions with a marker |
-| Mockups and spec disagreed on the primary action | Primary is crimson everywhere. Secondary actions are neutral with a boundary |
-| Accent budget by coverage percentage | Replaced by one crimson element per region |
-| Decorative retro styling designed out | The grid is a deliberate signature in three places |
-| Global comfortable density | Density per component class. Rows and toolbars default to Compact |
-| Elevation by tiny luminance steps | `edge` tokens carry structure. Fills carry state |
-| Blue and Teal presets left crimson buttons | Presets recolor accent, primary action, selection and focus together |
-| AI-generated mockups drifted from the spec | Revision 6 images are screenshots of the running demos. Earlier images moved to `assets/history` |
-| Prose-heavy spec | [One-page quick reference](quick-reference.md) and [category layouts](categories.md) |
-| CC BY applied to code and tokens | Code and generated tokens are MIT. Documentation and images stay CC BY 4.0 |

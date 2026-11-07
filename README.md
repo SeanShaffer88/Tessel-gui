@@ -10,9 +10,9 @@ A dense, tactile interface standard for desktop software of any kind, in dark an
 > and system settings. It specifies the tokens, regions, density and behavior
 > needed for long sessions in high-density interfaces.
 
-**Contents** · [Revision 6](#revision-6) · [Six rules](#six-rules) · [See it](#see-it) · [Any category](#any-category) · [Adopt Tessel](#adopt-tessel) · [Open questions](#open-questions)
+**Contents** · [Revision 1](#revision-1) · [Six rules](#six-rules) · [See it](#see-it) · [Any category](#any-category) · [Adopt Tessel](#adopt-tessel) · [Open questions](#open-questions)
 
-## Revision 6
+## Revision 1
 
 Crimson primary actions that meet 3:1 on every surface, structure from edges
 instead of tiny luminance steps, density chosen per component class, a grid
@@ -121,14 +121,6 @@ keyboard, screen-reader and reduced-motion testing in your application.
 
 For the maintainer's projects, plan adoption for the next scheduled release and
 show project-specific mockups for review before implementation.
-
-## History
-
-Earlier AI-generated concept images live in [`assets/history`](assets/history/).
-They are not normative and drifted from the spec in places. Revision 6 images
-are screenshots of the running demos. The [icon sheet](assets/tessel-icon-sheet.svg)
-and [iconography guidance](docs/iconography.md) are current. Earlier contracts
-are in [revisions 2–5](docs/history/revisions-2-5.md).
 
 ## Open questions
 

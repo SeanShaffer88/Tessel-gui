@@ -12,8 +12,7 @@ For the maintainer's projects, plan adoption for the next planned release and sh
 
 ## Supply provenance
 
-Use material you have permission to contribute. Documentation and images are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code and generated exports are [MIT](LICENSE-CODE). Record the source, creator, license, and modifications in [ATTRIBUTION.md](ATTRIBUTION.md). Identify AI-generated images and update the [generation notes](docs/image-generation-notes.md) when you add or revise them.
-
+Use material you have permission to contribute. Documentation and images are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code and generated exports are [MIT](LICENSE-CODE). Record the source, creator, license, and modifications in [ATTRIBUTION.md](ATTRIBUTION.md).
 Keep local machine paths, private email addresses, credentials, temporary files, raw phone screenshots, and work logs out of the public tree.
 
 ## Check your documentation

@@ -1,4 +1,4 @@
-# Tessel quick reference · revision 6
+# Tessel quick reference · revision 1
 
 One page. Full rules: [design guidelines](design-guidelines.md). Numbers: [tokens.json](tokens.json).
 

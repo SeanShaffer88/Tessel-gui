@@ -1,8 +1,6 @@
-# Tessel design guidelines · revision 6
+# Tessel design guidelines · revision 1
 
 A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Workspaces](workspaces.md) · [Polish checklist](polish.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Category demo](https://seanshaffer88.github.io/TesselGUI/demo/categories/) · [Tokens](tokens.json)
-
-Revisions 2–5 are kept in [history](history/revisions-2-5.md). Where they conflict with this page, this page wins.
 
 ## Principles
 
