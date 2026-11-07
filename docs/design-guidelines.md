@@ -65,6 +65,10 @@ A user can override the whole app in Settings (Per component, Compact, Comfortab
 
 User-triggered transitions use the duration roles and easing tokens in [motion](motion.md), stay under 200 ms and respect reduced motion. Nothing animates while idle.
 
+## Feedback
+
+Severity, placement, toasts, confirmations, error wording and progress rules are in [feedback](feedback.md). Prefer undo to confirmation, and inline messages to dialogs.
+
 ## Typography
 
 Windows: Segoe UI. macOS and Linux use the system UI font (`system-ui`). Monospace: Cascadia Mono, then Consolas, then the platform default. Body is 16 CSS px at the default text size and follows user scaling. Weight and placement set hierarchy before color or glow. The full scale, line heights, numeric and truncation rules are in [typography](typography.md). Monospace is for code, timecodes and aligned technical values only.

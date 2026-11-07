@@ -7,6 +7,7 @@ Releases use [Semantic Versioning](https://semver.org/) for the documented token
 - Motion: `motion.duration` roles (hover 80, press 60, expand 160, drawer 180, toast 120 ms), `motion.easing` (`standard`, `exit`), `stagger`, `reducedDuration`, allowed and forbidden lists, `docs/motion.md`, exports for CSS, DTCG, XAML, Rust, Slint and Godot, and a token test.
 - Typography: `caption` (11), `dense` (12) and `display` (32) sizes, line height per role, letter spacing, numeric rule, density roles, truncation rules, `docs/typography.md`, CSS font-size and line-height variables, other exports and a token test. Density now changes the type role of rows and controls; reading text stays at body size.
 - Shortcuts: `shortcuts` token section (reserved keys, required set, per-platform bindings, never-override list, hint bar, palette rules), `docs/shortcuts.md`, DTCG export and a test that bindings are unique per platform.
+- Feedback patterns: `feedback` token section (severity to color role with icon and text, placement, toast, confirmation, error anatomy, progress), `docs/feedback.md`, DTCG export and a test that every severity reaches 4.5:1 on every surface in both themes.
 
 ## 1.0.0 · 2026-11-07
 

@@ -352,3 +352,23 @@ test('shortcut bindings are complete, unique per platform and avoid reserved OS 
   assert.equal(palette.visibleRows, 8);
   assert.equal(palette.fuzzy && palette.recentFirst && palette.showShortcut, true);
 });
+
+test('feedback severities map to status colors that read as text on every surface', () => {
+  const { severities, toast, confirmation, errorAnatomy, progress, textContrastMinimum } = tokens.feedback;
+  assert.deepEqual(Object.keys(severities), ['info', 'success', 'warning', 'error']);
+  for (const [palette, name] of [[tokens.color, 'dark'], [tokens.lightColor, 'light']]) {
+    for (const [severity, def] of Object.entries(severities)) {
+      assert.ok(def.role in palette, `${severity} role exists`);
+      assert.equal(def.requiresIcon && def.requiresText, true, `${severity} needs icon and text`);
+      for (const surface of ['background', 'surface', 'raised', 'selected']) {
+        assert.ok(ratio(palette[def.role], palette[surface]) >= textContrastMinimum, `${name} ${severity} on ${surface}`);
+      }
+    }
+  }
+  assert.equal(new Set(Object.values(severities).map(def => def.role)).size, 4, 'severities use distinct roles');
+  assert.equal(toast.maxVisible, 1);
+  assert.ok(toast.defaultDurationMs >= 4000 && toast.dismissible);
+  assert.ok(toast.forbiddenFor.some(item => item.includes('error')));
+  assert.equal(errorAnatomy.length, 3);
+  assert.ok(confirmation.when && progress.cancelRequired);
+});
