@@ -7,6 +7,13 @@
   --touch-target: 44px;
   --motion-short: 120ms;
   --motion-panel: 180ms;
+  --motion-hover: 80ms;
+  --motion-press: 60ms;
+  --motion-expand: 160ms;
+  --motion-drawer: 180ms;
+  --motion-toast: 120ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
   --surface-1: var(--bg);
   --surface-2: var(--surface);
   --surface-3: var(--raised);

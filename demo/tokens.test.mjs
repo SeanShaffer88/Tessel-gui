@@ -296,3 +296,19 @@ test('fill and data-list rules are consistent with density, edge and selection t
     assert.ok(ratio(palette[dataList.selected.fill], palette.surface) > 1, `${name} selected row differs from the surface`);
   }
 });
+
+test('motion roles stay within the maximum, with a reduced-motion path', () => {
+  const { duration, easing, maximumTransition, reducedDuration, stagger } = tokens.motion;
+  assert.deepEqual(Object.keys(duration).sort(), ['drawer', 'expand', 'hover', 'press', 'toast']);
+  for (const [name, ms] of Object.entries(duration)) assert.ok(ms > 0 && ms <= maximumTransition, name);
+  for (const [name, [x1, y1, x2, y2]] of Object.entries(easing)) {
+    assert.ok(x1 >= 0 && x1 <= 1 && x2 >= 0 && x2 <= 1, `${name} x control points`);
+    assert.ok([y1, y2].every(Number.isFinite), `${name} y control points`);
+  }
+  assert.equal(stagger, 0);
+  assert.equal(reducedDuration, 0);
+  assert.ok(tokens.motion.allowed.length >= 3 && tokens.motion.forbidden.length >= 3);
+  const css = readFileSync(new URL('./tokens.css', import.meta.url), 'utf8');
+  for (const [name, ms] of Object.entries(duration)) assert.ok(css.includes(`--motion-${name}: ${ms}ms;`), name);
+  assert.ok(css.includes('--ease-standard: cubic-bezier(0.2, 0, 0, 1);'));
+});

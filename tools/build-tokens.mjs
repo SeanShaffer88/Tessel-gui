@@ -53,6 +53,8 @@ function css() {
     `--touch-target: ${tokens.density.touchControlMinWidth}px;`,
     `--motion-short: ${tokens.motion.shortTransition}ms;`,
     `--motion-panel: ${tokens.motion.panelTransition}ms;`,
+    ...Object.entries(tokens.motion.duration).map(([k, v]) => `--motion-${k}: ${v}ms;`),
+    ...Object.entries(tokens.motion.easing).map(([k, v]) => `--ease-${k}: cubic-bezier(${v.join(', ')});`),
     ...Object.entries(tokens.surfaceAliases).map(([alias, role]) => `--${alias}: var(--${kebab(role)});`),
   ];
   const scopes = (dark, light, indent) => [
@@ -130,7 +132,7 @@ function dtcg() {
       weight: Object.fromEntries(Object.entries(tokens.type.weight).map(([k, v]) => [k, { $type: 'fontWeight', $value: v }])),
       lineHeight: { $type: 'number', $value: tokens.type.bodyLineHeight },
     },
-    motion: { short: ms(tokens.motion.shortTransition), panel: ms(tokens.motion.panelTransition), maximum: ms(tokens.motion.maximumTransition) },
+    motion: { short: ms(tokens.motion.shortTransition), panel: ms(tokens.motion.panelTransition), maximum: ms(tokens.motion.maximumTransition), duration: Object.fromEntries(Object.entries(tokens.motion.duration).map(([k, v]) => [k, ms(v)])), easing: Object.fromEntries(Object.entries(tokens.motion.easing).map(([k, v]) => [k, { $type: 'cubicBezier', $value: v }])) },
     inspector: { width: dim(tokens.compartments.inspectorWidth), min: dim(tokens.compartments.inspectorMin), max: dim(tokens.compartments.inspectorMax) },
   }, null, 2) + '\n';
 }
@@ -169,6 +171,7 @@ ${brushes}
   <FontFamily x:Key="VgFontSans">${tokens.type.sans[0]}</FontFamily>
   <FontFamily x:Key="VgFontMono">${tokens.type.mono[0]}</FontFamily>
 ${Object.entries(tokens.type.size).map(([k, v]) => `  <x:Double x:Key="VgFontSize${pascal(k)}">${v}</x:Double>`).join('\n')}
+${Object.entries(tokens.motion.duration).map(([k, v]) => `  <x:Double x:Key="VgMotion${pascal(k)}Ms">${v}</x:Double>`).join('\n')}
   <Thickness x:Key="VgFocusVisualThickness">3</Thickness>
   <Thickness x:Key="VgFocusVisualMargin">-3</Thickness>
 </ResourceDictionary>
@@ -185,6 +188,7 @@ ${roles.map(role => `  <Color x:Key="Vg${pascal(role)}Color">${palette[role]}</C
   <FontFamily x:Key="VgFontSans">${tokens.type.sans[0]}</FontFamily>
   <FontFamily x:Key="VgFontMono">${tokens.type.mono[0]}</FontFamily>
 ${Object.entries(tokens.type.size).map(([k, v]) => `  <sys:Double x:Key="VgFontSize${pascal(k)}">${v}</sys:Double>`).join('\n')}
+${Object.entries(tokens.motion.duration).map(([k, v]) => `  <sys:Double x:Key="VgMotion${pascal(k)}Ms">${v}</sys:Double>`).join('\n')}
 </ResourceDictionary>
 `;
 }
@@ -234,6 +238,8 @@ pub const FOCUS_OFFSET: f32 = 3.0;
 pub const MOTION_SHORT_MS: u32 = ${tokens.motion.shortTransition};
 pub const MOTION_PANEL_MS: u32 = ${tokens.motion.panelTransition};
 pub const MOTION_MAX_MS: u32 = ${tokens.motion.maximumTransition};
+${Object.entries(tokens.motion.duration).map(([k, v]) => `pub const MOTION_${k.toUpperCase()}_MS: u32 = ${v};`).join('\n')}
+${Object.entries(tokens.motion.easing).map(([k, v]) => `pub const EASE_${k.toUpperCase()}: [f32; 4] = [${v.map(n => Number.isInteger(n) ? n + '.0' : n).join(', ')}];`).join('\n')}
 
 pub const INSPECTOR_WIDTH: f32 = ${tokens.compartments.inspectorWidth}.0;
 pub const INSPECTOR_MIN: f32 = ${tokens.compartments.inspectorMin}.0;
@@ -258,6 +264,7 @@ ${Object.entries(tokens.type.size).map(([k, v]) => `    out property <length> fo
     out property <string> font-mono: "${tokens.type.mono[0]}";
     out property <duration> motion-short: ${tokens.motion.shortTransition}ms;
     out property <duration> motion-panel: ${tokens.motion.panelTransition}ms;
+${Object.entries(tokens.motion.duration).map(([k, v]) => `    out property <duration> motion-${k}: ${v}ms;`).join('\n')}
 }
 `;
 }
@@ -277,6 +284,8 @@ const CONTROL_GAP := ${tokens.space.controlGap}
 const SECTION_GAP := ${tokens.space.sectionGap}
 const TOUCH_TARGET := ${tokens.density.touchControlMinWidth}
 ${Object.entries(tokens.type.size).map(([k, v]) => `const FONT_SIZE_${k.toUpperCase()} := ${v}`).join('\n')}
+${Object.entries(tokens.motion.duration).map(([k, v]) => `const MOTION_${k.toUpperCase()}_MS := ${v}`).join('\n')}
+${Object.entries(tokens.motion.easing).map(([k, v]) => `const EASE_${k.toUpperCase()} := Vector4(${v.join(', ')})`).join('\n')}
 `;
 }
 

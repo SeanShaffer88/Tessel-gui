@@ -115,6 +115,13 @@ pub const FOCUS_OFFSET: f32 = 3.0;
 pub const MOTION_SHORT_MS: u32 = 120;
 pub const MOTION_PANEL_MS: u32 = 180;
 pub const MOTION_MAX_MS: u32 = 200;
+pub const MOTION_HOVER_MS: u32 = 80;
+pub const MOTION_PRESS_MS: u32 = 60;
+pub const MOTION_EXPAND_MS: u32 = 160;
+pub const MOTION_DRAWER_MS: u32 = 180;
+pub const MOTION_TOAST_MS: u32 = 120;
+pub const EASE_STANDARD: [f32; 4] = [0.2, 0.0, 0.0, 1.0];
+pub const EASE_EXIT: [f32; 4] = [0.4, 0.0, 1.0, 1.0];
 
 pub const INSPECTOR_WIDTH: f32 = 300.0;
 pub const INSPECTOR_MIN: f32 = 240.0;

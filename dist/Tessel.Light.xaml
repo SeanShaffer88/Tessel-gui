@@ -60,4 +60,9 @@
   <sys:Double x:Key="VgFontSizeBody">16</sys:Double>
   <sys:Double x:Key="VgFontSizeSection">18</sys:Double>
   <sys:Double x:Key="VgFontSizeTitle">24</sys:Double>
+  <sys:Double x:Key="VgMotionHoverMs">80</sys:Double>
+  <sys:Double x:Key="VgMotionPressMs">60</sys:Double>
+  <sys:Double x:Key="VgMotionExpandMs">160</sys:Double>
+  <sys:Double x:Key="VgMotionDrawerMs">180</sys:Double>
+  <sys:Double x:Key="VgMotionToastMs">120</sys:Double>
 </ResourceDictionary>
