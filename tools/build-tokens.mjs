@@ -47,6 +47,10 @@ function css() {
   const themeExtras = scheme => [`color-scheme: ${scheme};`, `--material-shadow: ${tokens.material[scheme].structuralShadow};`];
   const base = [
     `--font-body: ${fontStack(tokens.type.sans)};`,
+    `--font-mono: ${fontStack(tokens.type.mono)};`,
+    ...Object.entries(tokens.type.size).map(([k, v]) => `--font-size-${k}: ${v}px;`),
+    ...Object.entries(tokens.type.lineHeight).map(([k, v]) => `--line-height-${k}: ${v};`),
+    ...Object.entries(tokens.type.letterSpacing).filter(([k]) => k !== 'unit').map(([k, v]) => `--letter-spacing-${kebab(k)}: ${v}em;`),
     `--control-gap: ${tokens.space.controlGap}px;`,
     `--group-gap: ${tokens.space.relatedGroupGap[1]}px;`,
     `--section-gap: ${tokens.space.sectionGap}px;`,
@@ -130,7 +134,9 @@ function dtcg() {
       mono: { $type: 'fontFamily', $value: tokens.type.mono },
       size: Object.fromEntries(Object.entries(tokens.type.size).map(([k, v]) => [k, dim(v)])),
       weight: Object.fromEntries(Object.entries(tokens.type.weight).map(([k, v]) => [k, { $type: 'fontWeight', $value: v }])),
-      lineHeight: { $type: 'number', $value: tokens.type.bodyLineHeight },
+      lineHeight: { $type: 'number', $value: tokens.type.bodyLineHeight, roles: Object.fromEntries(Object.entries(tokens.type.lineHeight).map(([k, v]) => [k, { $type: 'number', $value: v }])) },
+      letterSpacing: Object.fromEntries(Object.entries(tokens.type.letterSpacing).filter(([k]) => k !== 'unit').map(([k, v]) => [k, { $type: 'dimension', $value: `${v}em` }])),
+      densityRoles: tokens.type.densityRoles,
     },
     motion: { short: ms(tokens.motion.shortTransition), panel: ms(tokens.motion.panelTransition), maximum: ms(tokens.motion.maximumTransition), duration: Object.fromEntries(Object.entries(tokens.motion.duration).map(([k, v]) => [k, ms(v)])), easing: Object.fromEntries(Object.entries(tokens.motion.easing).map(([k, v]) => [k, { $type: 'cubicBezier', $value: v }])) },
     inspector: { width: dim(tokens.compartments.inspectorWidth), min: dim(tokens.compartments.inspectorMin), max: dim(tokens.compartments.inspectorMax) },
@@ -232,6 +238,7 @@ pub const FONT_SANS: &[&str] = &[${tokens.type.sans.map(f => JSON.stringify(f)).
 pub const FONT_MONO: &[&str] = &[${tokens.type.mono.map(f => JSON.stringify(f)).join(', ')}];
 ${Object.entries(tokens.type.size).map(([k, v]) => `pub const FONT_SIZE_${k.toUpperCase()}: f32 = ${v}.0;`).join('\n')}
 pub const LINE_HEIGHT: f32 = ${tokens.type.bodyLineHeight};
+${Object.entries(tokens.type.lineHeight).map(([k, v]) => `pub const LINE_HEIGHT_${k.toUpperCase()}: f32 = ${v};`).join('\n')}
 pub const FOCUS_OUTLINE: f32 = 3.0;
 pub const FOCUS_OFFSET: f32 = 3.0;
 

@@ -114,10 +114,13 @@
   <SolidColorBrush x:Key="VgSurroundBrush" Color="{ThemeResource VgSurroundColor}" />
   <FontFamily x:Key="VgFontSans">Segoe UI</FontFamily>
   <FontFamily x:Key="VgFontMono">Cascadia Mono</FontFamily>
+  <x:Double x:Key="VgFontSizeCaption">11</x:Double>
+  <x:Double x:Key="VgFontSizeDense">12</x:Double>
   <x:Double x:Key="VgFontSizeLabel">13</x:Double>
   <x:Double x:Key="VgFontSizeBody">16</x:Double>
   <x:Double x:Key="VgFontSizeSection">18</x:Double>
   <x:Double x:Key="VgFontSizeTitle">24</x:Double>
+  <x:Double x:Key="VgFontSizeDisplay">32</x:Double>
   <x:Double x:Key="VgMotionHoverMs">80</x:Double>
   <x:Double x:Key="VgMotionPressMs">60</x:Double>
   <x:Double x:Key="VgMotionExpandMs">160</x:Double>

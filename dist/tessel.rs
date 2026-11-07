@@ -104,11 +104,18 @@ pub const TOUCH: Density = Density { panel_padding: 20.0, control_min_height: 48
 
 pub const FONT_SANS: &[&str] = &["Segoe UI", "system-ui", "sans-serif"];
 pub const FONT_MONO: &[&str] = &["Cascadia Mono", "Consolas", "monospace"];
+pub const FONT_SIZE_CAPTION: f32 = 11.0;
+pub const FONT_SIZE_DENSE: f32 = 12.0;
 pub const FONT_SIZE_LABEL: f32 = 13.0;
 pub const FONT_SIZE_BODY: f32 = 16.0;
 pub const FONT_SIZE_SECTION: f32 = 18.0;
 pub const FONT_SIZE_TITLE: f32 = 24.0;
+pub const FONT_SIZE_DISPLAY: f32 = 32.0;
 pub const LINE_HEIGHT: f32 = 1.5;
+pub const LINE_HEIGHT_LABEL: f32 = 1.25;
+pub const LINE_HEIGHT_BODY: f32 = 1.5;
+pub const LINE_HEIGHT_DENSE: f32 = 1.2;
+pub const LINE_HEIGHT_TITLE: f32 = 1.2;
 pub const FOCUS_OUTLINE: f32 = 3.0;
 pub const FOCUS_OFFSET: f32 = 3.0;
 

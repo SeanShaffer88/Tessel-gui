@@ -312,3 +312,22 @@ test('motion roles stay within the maximum, with a reduced-motion path', () => {
   for (const [name, ms] of Object.entries(duration)) assert.ok(css.includes(`--motion-${name}: ${ms}ms;`), name);
   assert.ok(css.includes('--ease-standard: cubic-bezier(0.2, 0, 0, 1);'));
 });
+
+test('type scale is ordered and its density roles resolve to real sizes', () => {
+  const { size, lineHeight, letterSpacing, densityRoles, numeric } = tokens.type;
+  const order = ['caption', 'dense', 'label', 'body', 'section', 'title', 'display'];
+  assert.deepEqual(Object.keys(size), order);
+  order.reduce((prev, key) => { assert.ok(size[key] > prev, key); return size[key]; }, 0);
+  assert.ok(size.caption >= 11 && size.dense >= 12);
+  for (const [name, value] of Object.entries(lineHeight)) assert.ok(value >= 1.2 && value <= 1.6, name);
+  assert.equal(letterSpacing.body, 0);
+  assert.ok(letterSpacing.capsLabel > 0 && letterSpacing.capsLabel <= 0.08);
+  assert.equal(numeric.tabularFigures, true);
+  for (const density of ['compact', 'comfortable', 'touch']) {
+    for (const role of Object.values(densityRoles[density])) assert.ok(role in size, `${density} ${role}`);
+  }
+  assert.ok(size[densityRoles.compact.row] <= size[densityRoles.comfortable.row]);
+  assert.ok(size[densityRoles.comfortable.row] <= size[densityRoles.touch.row]);
+  const css = readFileSync(new URL('./tokens.css', import.meta.url), 'utf8');
+  for (const [name, px] of Object.entries(size)) assert.ok(css.includes(`--font-size-${name}: ${px}px;`), name);
+});
