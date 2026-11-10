@@ -37,7 +37,7 @@ the [changelog](CHANGELOG.md), [audit](AUDIT.md) and [decisions](docs/decisions.
 ## See it
 
 <p align="center">
-  <img src="assets/tessel-workspace.png" alt="The Tessel reference workspace in the dark theme: navigation, task table with a selected row, details inspector, segmented progress and a crimson primary action" width="100%">
+  <img src="assets/tessel-workspace.png" alt="The Tessel reference workspace in the dark theme: navigation, task table with a selected row, details inspector, segmented progress and a green primary action" width="100%">
 </p>
 
 *Screenshot of the running [reference workspace](https://seanshaffer88.github.io/TesselGUI/demo/), dark theme.*
