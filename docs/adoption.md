@@ -6,7 +6,7 @@ How to bring the standard into a project. Take the generated token export for yo
 
 | Stack | File | Use |
 | --- | --- | --- |
-| Web, Tauri, Electron-free webviews | [demo/tokens.css](../demo/tokens.css) | Link it. Set `data-theme` (system, light, dark) and `data-accent` (crimson, blue, teal, graphite) on the root element. |
+| Web, Tauri, Electron-free webviews | [demo/tokens.css](../demo/tokens.css) | Link it. Set `data-theme` (system, light, dark) and `data-accent` (github, crimson, blue, teal, graphite) on the root element. |
 | Rust (Win32, windows-sys) | [dist/tessel.rs](../dist/tessel.rs) | Include as a module. Palettes are `[u8; 3]`. Sizes are CSS-pixel equivalents: scale by DPI. |
 | Slint | [dist/Tessel.slint](../dist/Tessel.slint) | Import the `Tessel` global. Bind `dark` to the OS theme from Rust. |
 | WPF | [dist/Tessel.Dark.xaml](../dist/Tessel.Dark.xaml), [dist/Tessel.Light.xaml](../dist/Tessel.Light.xaml) | Merge one dictionary and swap it to change theme. Use `SystemColors` when `SystemParameters.HighContrast` is true. |
