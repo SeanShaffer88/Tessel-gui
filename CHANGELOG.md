@@ -2,6 +2,14 @@
 
 Releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
+## 1.2.0 · 2026-11-10
+
+Design revision 2. The default color scheme changes from Crimson on charcoal to GitHub Dark.
+
+- Color: the dark theme uses GitHub Dark values — `#0D1117` background with surface steps of 5–10% relative luminance, `#F0F6FC` / `#9198A1` text, `#3D444D` edges, GitHub blue selection (`#2F81F7`) and focus (`#79B8FF`), the GitHub green family for the primary action (`#1A7F37` rest, `#238636` hover, `#116329` pressed, one step darker at rest so the white label keeps its 5:1 target), and GitHub status colors (`#3FB950`, `#D29922`, `#FFA198`, `#A5D6FF`). The light theme keeps its surfaces and takes the GitHub Light accent family (`#0550AE` deep accent and focus, `#0969DA` selection, the same greens).
+- Presets: GitHub is the new default preset. The revision 1 scheme remains available unchanged as the Crimson preset; Blue, Teal and Graphite are unchanged. A missing or unknown preset ID now falls back to GitHub instead of Crimson; stored `crimson` preferences stay valid.
+- Docs and demos describe and use the new scheme, the deep-accent and wood-grain swatches are re-drawn in it, and the measured palette contract in `docs/materials.md` is recomputed. The static mockup images under `assets/mockups/` still show revision 1 colors and are queued for recapture.
+
 ## 1.1.0 · 2026-11-07
 
 - Motion: `motion.duration` roles (hover 80, press 60, expand 160, drawer 180, toast 120 ms), `motion.easing` (`standard`, `exit`), `stagger`, `reducedDuration`, allowed and forbidden lists, `docs/motion.md`, exports for CSS, DTCG, XAML, Rust, Slint and Godot, and a token test.
