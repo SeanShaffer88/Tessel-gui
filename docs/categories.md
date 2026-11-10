@@ -1,6 +1,6 @@
 # Category layouts
 
-Tessel applies to any desktop product by changing which region dominates, not by changing the system. Each archetype below keeps the same tokens, edges, one crimson element per region, and the same keyboard contract. See them live in the [category demo](https://seanshaffer88.github.io/TesselGUI/demo/categories/).
+Tessel applies to any desktop product by changing which region dominates, not by changing the system. Each archetype below keeps the same tokens, edges, one accent element per region, and the same keyboard contract. See them live in the [category demo](https://seanshaffer88.github.io/TesselGUI/demo/categories/).
 
 <img src="../assets/tessel-categories.png" alt="Eight Tessel layouts in the dark theme: data and records, editor, media, monitoring, wizard, communication, CAD, and settings" width="640">
 
@@ -19,9 +19,9 @@ Tessel applies to any desktop product by changing which region dominates, not by
 | Archetype | Dominant region | Typical regions | Density notes | Primary action | Special rules |
 | --- | --- | --- | --- | --- | --- |
 | Data & records | Table (≈65%) | Filters, details inspector, status | Rows Compact, forms Comfortable | Export, Run, Save | Virtualize. Sort and selection are keyboard operable. Selected row uses `selected` fill plus marker |
-| Editor & IDE | Editor (≈55%) | Explorer, symbols, terminal, status | Everything Compact | Run | Syntax colors never use brand crimson. Errors use `danger` with an icon |
+| Editor & IDE | Editor (≈55%) | Explorer, symbols, terminal, status | Everything Compact | Run | Syntax colors never use the brand accent. Errors use `danger` with an icon |
 | Media & creative | Canvas (≈70%) | Tool rail, properties, timeline | Toolbars Compact, properties Comfortable | Render, Export | Chrome recedes. Grid appears as the empty canvas. Canvas content is exempt from the palette |
-| Monitoring & analytics | One metric or chart | Node list, events, filters | Rows Compact | Acknowledge, Resolve | Every chart has a table alternative and a text summary. Series colors do not use brand crimson. Status needs words |
+| Monitoring & analytics | One metric or chart | Node list, events, filters | Rows Compact | Acknowledge, Resolve | Every chart has a table alternative and a text summary. Series colors do not use the brand accent. Status needs words |
 | Utility & wizard | Current step | Step list, progress, actions | Comfortable | Continue, Start | No scrollbars. Preview before destructive work. Cancel always reachable |
 | Communication | Conversation (≈50%) | Conversation list, contact detail | Rows Compact | Send | Asymmetric by design. Unread uses text and weight, not color alone |
 | CAD & 3D | Viewport (≈70%) | Feature tree, properties, command line | Compact | Commit | The viewport may use depth, perspective and its own palette. Chrome stays flat. Provide keyboard orbit, pan and zoom |

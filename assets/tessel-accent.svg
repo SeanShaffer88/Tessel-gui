@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="32" viewBox="0 0 96 32">
-  <title>Tessel deep crimson accent #76172A</title>
-  <rect width="96" height="32" rx="4" fill="#76172A"/>
+  <title>Tessel deep accent swatch: GitHub dark #15263C and GitHub light #0550AE</title>
+  <rect width="48" height="32" fill="#15263C"/>
+  <rect x="48" width="48" height="32" fill="#0550AE"/>
 </svg>

@@ -80,7 +80,7 @@ test('CSS and machine-readable palette agree across fallback, OKLCH, and System 
   assert.ok(Math.max(tokens.motion.shortTransition, tokens.motion.panelTransition) <= tokens.motion.maximumTransition);
 });
 
-test('dark charcoal levels step 5–10% in relative luminance in both encodings', () => {
+test('dark surface levels step 5–10% in relative luminance in both encodings', () => {
   for (const palette of [tokens.color, tokens.colorOklch.dark]) {
     const levels = [palette.background, palette.surface, palette.raised].map(luminance);
     const [min, max] = tokens.contrast.darkSurfaceRelativeLuminanceStep;
@@ -97,9 +97,9 @@ test('appearance presets recolor the accent, primary action, selection and focus
   const brightestWood = woodColors.sort((a, b) => luminance(a) - luminance(b)).at(-1);
   const exported = JSON.parse(readFileSync(new URL('../dist/tessel.tokens.json', import.meta.url), 'utf8'));
   const roles = ['accent', 'action', 'actionHover', 'actionPressed', 'selectionIndicator', 'focus'];
-  assert.equal(tokens.appearanceAccents.default, 'crimson');
-  assert.doesNotMatch(css, /\[data-accent=crimson\]/);
-  for (const id of ['blue', 'teal', 'graphite']) {
+  assert.equal(tokens.appearanceAccents.default, 'github');
+  assert.doesNotMatch(css, /\[data-accent=github\]/);
+  for (const id of ['crimson', 'blue', 'teal', 'graphite']) {
     const preset = tokens.appearanceAccents.presets[id];
     for (const [colors, dark, light, base] of [
       [preset, tokens.color, tokens.lightColor, true],
@@ -146,17 +146,21 @@ test('appearance presets recolor the accent, primary action, selection and focus
   assert.match(css, /@media \(forced-colors: active\)\s*\{\s*:root\s*\{ --selection-indicator: Highlight !important; --focus: Highlight !important;/);
 });
 
-test('the deep crimson accent matches the brand swatch and preserves label contrast', () => {
+test('the deep accent matches the brand swatch and preserves label contrast', () => {
   const swatch = readFileSync(new URL('../assets/tessel-accent.svg', import.meta.url), 'utf8');
+  assert.equal(tokens.color.accent, '#15263C');
+  assert.equal(tokens.lightColor.accent, '#0550AE');
   for (const palette of [tokens.color, tokens.lightColor]) {
-    assert.equal(palette.accent, '#76172A');
     assert.ok(swatch.includes(`fill="${palette.accent}"`));
   }
-  for (const palette of [tokens.color, tokens.lightColor, tokens.colorOklch.dark, tokens.colorOklch.light]) {
+  for (const [palette, expected] of [
+    [tokens.color, '#15263C'], [tokens.colorOklch.dark, '#15263C'],
+    [tokens.lightColor, '#0550AE'], [tokens.colorOklch.light, '#0550AE'],
+  ]) {
     assert.notEqual(palette.accent, palette.selectionIndicator);
     assert.ok(ratio(palette.accentForeground, palette.accent) >= 5);
     assert.ok(linearSrgb(palette.accent).every((channel, i) =>
-      Math.abs(channel - linearSrgb('#76172A')[i]) < 1e-6));
+      Math.abs(channel - linearSrgb(expected)[i]) < 1e-6));
   }
 });
 

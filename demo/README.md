@@ -15,7 +15,7 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 ## Controls
 
 - Theme: System, Light, Dark. System follows OS color preference through CSS.
-- Accent color: Crimson, Blue, or Teal for selection markers and focus. Changes apply immediately. The preset follows the effective theme and system highlights take precedence in forced colors.
+- Accent color: GitHub by default, or Crimson, Blue, Teal or Graphite, for selection markers and focus. Changes apply immediately. The preset follows the effective theme and system highlights take precedence in forced colors.
 - Decorative edge: optional neutral masthead edge, off by default.
 - Density: Per component (default), Compact, Comfortable or Touch. Data rows default to Compact.
 - Grid signature: empty-state grid, ten-segment progress and the active-region rule. The [category layouts](categories/index.html) show eight product types.
@@ -28,7 +28,7 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 
 ## Persistence and boundaries
 
-The `tessel.display.v1` localStorage entry contains versioned theme, accent ID, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain Crimson, Appearance, and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
+The `tessel.display.v1` localStorage entry contains versioned theme, accent ID, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain GitHub, Appearance, and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.
 
 The same inspector DOM moves into a native modal dialog below 901 CSS pixels. Native modal behavior provides focus containment and Escape; the script restores focus to the opening control. No service worker, PWA registration, automatic synchronization, or startup job exists.
 

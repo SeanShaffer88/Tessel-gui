@@ -43,7 +43,7 @@ Small decisions that separate a professional tool from a prototype. Use it as a 
 
 ## Structure
 
-- [ ] One dominant region per view and one crimson element per region.
+- [ ] One dominant region per view and one accent element per region.
 - [ ] Edges separate compartments. Luminance marks state.
 - [ ] Layouts survive resize, 200% text, long localized strings and a second monitor.
 - [ ] Window size, position and layouts are restored, and validated against the current displays.

@@ -10,20 +10,23 @@ A dense, tactile interface standard for desktop software of any kind, in dark an
 > and system settings. It specifies the tokens, regions, density and behavior
 > needed for long sessions in high-density interfaces.
 
-**Contents** · [Revision 1](#revision-1) · [Six rules](#six-rules) · [See it](#see-it) · [Any category](#any-category) · [Adopt Tessel](#adopt-tessel) · [Open questions](#open-questions)
+**Contents** · [Revision 2](#revision-2) · [Six rules](#six-rules) · [See it](#see-it) · [Any category](#any-category) · [Adopt Tessel](#adopt-tessel) · [Open questions](#open-questions)
 
-## Revision 1
+## Revision 2
 
-Crimson primary actions that meet 3:1 on every surface, structure from edges
-instead of tiny luminance steps, density chosen per component class, a grid
-signature that carries meaning, presets that recolor the whole accent, and a
-layout guide for eight product categories. See the [changelog](CHANGELOG.md),
-[audit](AUDIT.md) and [decisions](docs/decisions.md).
+The default color scheme now matches GitHub Dark in the dark theme: near-black
+blue-gray surfaces, GitHub blue for selection and focus, and GitHub green
+primary actions that meet 3:1 on every surface, with the light theme using the
+matching GitHub Light accent family. Structure from edges instead of tiny
+luminance steps, density chosen per component class, a grid signature that
+carries meaning, presets that recolor the whole accent (the revision 1 Crimson
+scheme is now a preset), and a layout guide for eight product categories. See
+the [changelog](CHANGELOG.md), [audit](AUDIT.md) and [decisions](docs/decisions.md).
 
 ## Six rules
 
 1. **One dominant region** per view, 55–70% wide. Supporting regions 20–35%.
-2. **One crimson element per region**: primary action, selection marker, or active-region rule.
+2. **One accent element per region**: primary action, selection marker, or active-region rule.
 3. **Edges build structure.** A 1px `edge` between compartments. Fills mark hover and selection.
 4. **Density follows the component.** Rows, trees and toolbars Compact. Forms, dialogs and navigation Comfortable.
 5. **Keyboard first.** Every task has a path, shortcuts are visible, Ctrl/⌘+K opens commands.
@@ -57,16 +60,16 @@ layout guide for eight product categories. See the [changelog](CHANGELOG.md),
 
 | Program type | What the design does | Mockup |
 | --- | --- | --- |
-| Spreadsheet | Dominant grid with row and column gridlines, frozen headers, tabular figures, formula bar, one crimson Save | [View](assets/mockups/tessel-spreadsheet.png) |
-| File and folder compare | Two synchronized panes, a state list, a differences table, markers that do not rely on color alone, one crimson Merge | [View](assets/mockups/tessel-file-compare.png) |
-| Music production | Browser, arrangement with clips, mixer with segmented meters, value controls, one crimson Record | [View](assets/mockups/tessel-music-production.png) |
-| Image editor | Neutral viewport around the canvas, tool rail, layers, adjustments, history, one crimson Export | [View](assets/mockups/tessel-image-editor.png) |
-| Video editor | Media bin, preview, inspector, multi-track timeline with a playhead, one crimson Export | [View](assets/mockups/tessel-video-editor.png) |
-| Code editor | Explorer, editor, symbols, problems table and terminal, status with icon and text, one crimson Run | [View](assets/mockups/tessel-code-editor.png) |
-| Program manager | Gridded list of installed programs, filters, details, one crimson Uninstall | [View](assets/mockups/tessel-program-manager.png) |
-| Monitoring console | Metric tiles, a chart with a table alternative, events, a node table, one crimson Acknowledge | [View](assets/mockups/tessel-monitoring.png) |
+| Spreadsheet | Dominant grid with row and column gridlines, frozen headers, tabular figures, formula bar, one accent Save | [View](assets/mockups/tessel-spreadsheet.png) |
+| File and folder compare | Two synchronized panes, a state list, a differences table, markers that do not rely on color alone, one accent Merge | [View](assets/mockups/tessel-file-compare.png) |
+| Music production | Browser, arrangement with clips, mixer with segmented meters, value controls, one accent Record | [View](assets/mockups/tessel-music-production.png) |
+| Image editor | Neutral viewport around the canvas, tool rail, layers, adjustments, history, one accent Export | [View](assets/mockups/tessel-image-editor.png) |
+| Video editor | Media bin, preview, inspector, multi-track timeline with a playhead, one accent Export | [View](assets/mockups/tessel-video-editor.png) |
+| Code editor | Explorer, editor, symbols, problems table and terminal, status with icon and text, one accent Run | [View](assets/mockups/tessel-code-editor.png) |
+| Program manager | Gridded list of installed programs, filters, details, one accent Uninstall | [View](assets/mockups/tessel-program-manager.png) |
+| Monitoring console | Metric tiles, a chart with a table alternative, events, a node table, one accent Acknowledge | [View](assets/mockups/tessel-monitoring.png) |
 
-Every mockup follows the same rules: regions fill their space, data lists are gridded, one crimson element per region, edges for structure, a single active-region rule per window.
+Every mockup follows the same rules: regions fill their space, data lists are gridded, one accent element per region, edges for structure, a single active-region rule per window.
 
 ### Light theme
 
@@ -98,10 +101,10 @@ Cross-cutting rules: [motion](docs/motion.md), [typography](docs/typography.md),
 | Density has rhythm | 6 CSS px minimum between distinct grouped controls, 8 default, 12–16 between groups, 24 between sections |
 | Density is per component | Compact rows (28) and controls (32) for repeated work. Comfortable (36/40) for forms and dialogs. Touch (48). [Density](docs/design-guidelines.md#density) |
 | The current task fits | Windows, dialogs, forms and wizard pages fit without scrollbars. Data containers scroll inside their own bounded viewport. The main window never scrolls |
-| Crimson is scarce | Primary action `#D02946` (dark) with a white label, 3:1 on every surface. Deep `#76172A` only for large tinted regions with a marker. [Crimson roles](docs/materials.md#crimson-roles) |
-| Edges carry structure | Three charcoal levels differ by 5–10% luminance and mark state. A 1px `edge` separates compartments |
+| The accent is scarce | Primary action `#1A7F37` (dark) with a white label, 3:1 on every surface. Deep `#15263C` only for large tinted regions with a marker. [Accent roles](docs/materials.md#accent-roles) |
+| Edges carry structure | Three GitHub-dark surface levels differ by 5–10% luminance and mark state. A 1px `edge` separates compartments |
 | The grid has a job | A 24 px grid in empty states and canvases, ten-segment progress, and a 2px active-region rule. [Grid signature](docs/materials.md#grid-signature) |
-| Presets recolor the whole accent | Crimson, Blue, Teal and the neutral Graphite change the primary action, selection, focus and deep accent together |
+| Presets recolor the whole accent | GitHub is the default. Crimson, Blue, Teal and the neutral Graphite change the primary action, selection, focus and deep accent together |
 | Keyboard access starts at the surface | Logical Tab order, visible focus, Commands on Ctrl/⌘+K |
 
 Tessel targets [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including 4.5:1
@@ -126,7 +129,7 @@ show project-specific mockups for review before implementation.
 
 ## Open questions
 
-- How well do the crimson primary and its supporting text or shape hold up for users with protanopia? A simulator pass is pending.
+- How well do the green primary and blue selection and their supporting text or shape hold up for users with color-vision deficiencies? A simulator pass is pending.
 - Where should the density rhythm change on tablets and other touch hardware?
 - Does the grid motif need a variant for very high-contrast or monochrome displays?
 

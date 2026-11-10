@@ -30,7 +30,7 @@ Panels are the movable compartments. Give every panel the same header anatomy: t
 
 ## Options bar
 
-A contextual bar under the toolbar shows options for the active tool or selection: brush size, trim mode, zoom. It changes with context but stays in one place. Its primary action sits at the far end. It is the region's one crimson element.
+A contextual bar under the toolbar shows options for the active tool or selection: brush size, trim mode, zoom. It changes with context but stays in one place. Its primary action sits at the far end. It is the region's one accent element.
 
 ## Value controls
 
@@ -51,7 +51,7 @@ Sliders, knobs, faders and scrubbed fields are the heart of creative tools. They
 Here the grid motif is functional, not decorative.
 
 - Rulers and lanes use `grid` lines for time or beat divisions, stronger lines at bar or second boundaries.
-- The **playhead** is a 2px `selectionIndicator` line, the region's one crimson element. Selected clips use `selected` fill and a neutral outline.
+- The **playhead** is a 2px `selectionIndicator` line, the region's one accent element. Selected clips use `selected` fill and a neutral outline.
 - Snap to the grid by default, with a modifier to disable. Show the snap state in the status bar.
 - Zoom, pan and nudge have keyboard commands. Timecodes and positions use tabular figures.
 - Step sequencer cells are buttons with `aria-pressed`. Beat groups have a stronger border.
@@ -60,7 +60,7 @@ Here the grid motif is functional, not decorative.
 
 Chrome tint changes color perception. For tools where color judgment matters:
 
-- Offer the **Graphite** preset. It makes the primary action, selection, focus and accent neutral. The default stays Crimson.
+- Offer the **Graphite** preset. It makes the primary action, selection, focus and accent neutral. The default stays GitHub.
 - Draw the viewport on a **neutral surround** (`surround`). It stays chroma-free in dark and light.
 - Keep UI chrome out of the image. Do not tint overlays on the picture.
 - Provide a clean-feed or full-screen viewer mode with a visible exit and a palette command.

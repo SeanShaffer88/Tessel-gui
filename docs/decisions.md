@@ -2,6 +2,12 @@
 
 Design ideas that came up while writing revision 1, and what the standard does with each. The test: does it help a long-session tool of any category, without breaking anything else?
 
+## Revision 2 (2026-11-10)
+
+| Idea | Decision |
+| --- | --- |
+| GitHub Dark as the default scheme | Adopted. The default dark palette matches GitHub Dark (surfaces, text, edges, blue selection and focus, green primary actions, GitHub status colors); the light theme keeps its surfaces and takes the GitHub Light accent family. The revision 1 Crimson scheme stays available as a preset with its original values. Two values are Tessel-adjusted rather than copied: the resting action green is one step darker than GitHub's button green so the white label keeps the 5:1 target, and the dark `selected` fill sits below GitHub's hover fill so every preset's selection marker keeps 3:1 on it |
+
 ## Adopted
 
 | Idea | Decision |

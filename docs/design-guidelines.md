@@ -1,11 +1,11 @@
-# Tessel design guidelines · revision 1
+# Tessel design guidelines · revision 2
 
 A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Workspaces](workspaces.md) · [Polish checklist](polish.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Category demo](https://seanshaffer88.github.io/TesselGUI/demo/categories/) · [Tokens](tokens.json)
 
 ## Principles
 
 1. **One dominant region per view.** The task decides which region leads. Give it 55–70% of the width and let the rest support it. Equal columns signal that no one decided.
-2. **Crimson means "here, now."** At most one crimson element per region: the primary action, the selection marker, or the active-region rule. Never for data series, syntax, or decoration.
+2. **The accent means "here, now."** At most one accent element per region: the primary action, the selection marker, or the active-region rule. Never for data series, syntax, or decoration.
 3. **Structure from edges, state from fills.** Compartments are separated by a 1px `edge` border. Luminance steps only mark hover and selection.
 4. **Every task has a keyboard path** and a visible shortcut. Ctrl/⌘+K opens commands. Bindings and palette rules are in [shortcuts](shortcuts.md).
 5. **Density follows the component, not the app.** See [density](#density).
@@ -14,22 +14,22 @@ A dense, tactile standard for long-session desktop software of any kind: editors
 
 ## Color
 
-Three charcoal surfaces (`background`, `surface`, `raised`) plus `selected`. They differ by 5–10% relative luminance on purpose, so they are not a structural cue. Use `edge` for that.
+Three GitHub-dark surfaces (`background`, `surface`, `raised`) plus `selected`. They differ by 5–10% relative luminance on purpose, so they are not a structural cue. Use `edge` for that.
 
 | Role | Use | Rule |
 | --- | --- | --- |
-| `action`, `actionHover`, `actionPressed` | The primary action fill | Crimson. 3:1 against every surface, so it needs no extra rim. `actionForeground` label ≥5:1 (hover ≥4.5:1) |
-| `accent` (`#76172A`) | Large tinted regions such as a selected row band or banner | 1.5:1 on dark surfaces. Never alone. Always with a marker and a label |
+| `action`, `actionHover`, `actionPressed` | The primary action fill | GitHub green in the default scheme. 3:1 against every surface, so it needs no extra rim. `actionForeground` label ≥5:1 (hover ≥4.5:1) |
+| `accent` (`#15263C` dark, `#0550AE` light) | Large tinted regions such as a selected row band or banner | 1.5:1 on dark surfaces. Never alone. Always with a marker and a label |
 | `selectionIndicator` | Selection marker, active-region rule | ≥3:1 on every surface and the grid |
 | `focus` | Keyboard focus outline | Independent of selection. A focused selected item shows both |
 | `edge` | 1px compartment and table borders | ≥1.4:1 against all surfaces |
 | `border` | Control boundaries (fields, secondary buttons) | ≥3:1 |
 | `grid` | The grid motif lines | 1.04–1.3:1 against surfaces. Text over it stays ≥4.5:1 |
-| `info` `warning` `success` `danger` | Status text | Always with a word. Never brand crimson |
+| `info` `warning` `success` `danger` | Status text | Always with a word. Never the brand accent |
 
-Primary action: one per view, crimson fill, clear verb. Secondary actions use `raised` with a `border`. Destructive actions use `danger` text with an icon and a confirmation that names the effect.
+Primary action: one per view, accent fill, clear verb. Secondary actions use `raised` with a `border`. Destructive actions use `danger` text with an icon and a confirmation that names the effect.
 
-Theme (System, Light, Dark) and accent preset (Crimson, Blue, Teal) are independent. A preset recolors `accent`, the primary action, selection, and focus together, so a Blue product does not carry crimson buttons. Forced-colors mode uses system colors.
+Theme (System, Light, Dark) and accent preset are independent. The default preset is GitHub; Crimson, Blue, Teal and Graphite are alternatives. A preset recolors `accent`, the primary action, selection, and focus together, so a Blue product does not carry green buttons. Forced-colors mode uses system colors.
 
 ## Layout
 
@@ -79,7 +79,7 @@ The grid is a quiet motif that carries meaning in three places and nowhere else:
 
 1. **Empty states and canvases:** a 24 px line grid in `grid`. It says "space to fill." Never behind text-dense content.
 2. **Determinate progress:** ten equal segments. Indeterminate progress uses a moving segment and stops under reduced motion.
-3. **Active-region rule:** the crimson header rule is the grid's one bright line.
+3. **Active-region rule:** the accent header rule is the grid's one bright line.
 
 The grid is static and decorative. Fields, buttons, rows and state fills stay solid. The soft wood-grain treatment is an optional dark background; see [materials](materials.md#dark-wood-grain).
 
@@ -91,7 +91,7 @@ Context awareness means OS signals only: theme, contrast, reduced motion, text s
 
 ## Accessibility
 
-Target WCAG 2.2 AA: 4.5:1 normal text, 3:1 large text and required non-text indicators, a 44 × 44 CSS px touch policy (stricter than AA's 24 × 24 criterion). Static images cannot show keyboard behavior, screen-reader output or reduced-motion support. Test in the target application and record platform, settings and results before claiming support. Test crimson cues with a protanopia simulator: selection and status always have a text or shape cue.
+Target WCAG 2.2 AA: 4.5:1 normal text, 3:1 large text and required non-text indicators, a 44 × 44 CSS px touch policy (stricter than AA's 24 × 24 criterion). Static images cannot show keyboard behavior, screen-reader output or reduced-motion support. Test in the target application and record platform, settings and results before claiming support. Test accent cues with a color-vision simulator: selection and status always have a text or shape cue.
 
 ## Adaptation
 

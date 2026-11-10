@@ -1,11 +1,11 @@
-# Tessel quick reference · revision 1
+# Tessel quick reference · revision 2
 
 One page. Full rules: [design guidelines](design-guidelines.md). Numbers: [tokens.json](tokens.json).
 
 ## Six rules
 
 1. **One dominant region** per view, 55–70% wide. Supporting regions 20–35%. No equal columns.
-2. **One crimson per region.** Primary action, selection marker, or active-region rule.
+2. **One accent per region.** Primary action, selection marker, or active-region rule.
 3. **Edges build structure.** 1px `edge` between compartments. Fills mark hover and selection only.
 4. **Density per component.** Rows, trees, toolbars Compact. Forms, dialogs, navigation Comfortable.
 5. **Keyboard first.** Every task has a path. Ctrl/⌘+K opens commands. Focus is always visible.
@@ -50,13 +50,13 @@ Gaps: 6 min, 8 default, 12–16 between groups, 24 between sections.
 
 | Do | Don't |
 | --- | --- |
-| One primary action, clear verb | Crimson on several buttons at once |
+| One primary action, clear verb | Accent color on several buttons at once |
 | Scroll inside tables, logs, editors | Scroll the main window |
 | Inline messages and drawers | Modals for non-blocking info |
 | Text + icon with every status color | Color-only meaning |
 | Hide secondary tools with a visible restore | Hide primary actions or commands |
 | Follow OS theme, contrast, motion, text size | Track location or behavior |
-| Brand crimson for chrome | Brand crimson in charts or syntax |
+| Brand accent for chrome | Brand accent in charts or syntax |
 
 ## Multi-mode and creative tools
 
