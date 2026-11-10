@@ -24,7 +24,7 @@ Licensing is split by content type:
 
 The original vectors take broad aesthetic inspiration from the clean hardware minimalism and secondary dot language of Nothing OS. No affiliation or endorsement is implied; no proprietary glyphs, fonts, logos, or assets were copied. See [iconography provenance](docs/iconography.md).
 
-The [dark wood-grain swatch](assets/tessel-wood-grain.svg) and [deep crimson swatch](assets/tessel-accent.svg) are original geometric SVGs authored for Tessel by Sean Shaffer with AI assistance and use the repository's CC BY 4.0 license.
+The [dark wood-grain swatch](assets/tessel-wood-grain.svg) and [deep accent swatch](assets/tessel-accent.svg) are original geometric SVGs authored for Tessel by Sean Shaffer with AI assistance and use the repository's CC BY 4.0 license.
 
 ## Example credit
 
