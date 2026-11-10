@@ -2,6 +2,11 @@
 
 Releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
+## 1.2.1 · 2026-11-10
+
+- Images: every README image now shows design revision 2. The workspace and category-layout images were recaptured from the live demo; the dark, light and Graphite mockups were recolored to the exact revision 2 token values (the editor mockups' canvas artwork is unchanged); both slideshow GIFs were rebuilt from the new images.
+- Name: the demo headers and the site heading now use the full name TesselGUI. No page or image carries the project's former name.
+
 ## 1.2.0 · 2026-11-10
 
 Design revision 2. The default color scheme changes from Crimson on charcoal to GitHub Dark.
