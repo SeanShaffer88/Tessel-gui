@@ -7,7 +7,7 @@ const dialog = get('path-dialog');
 const settings = {
   'text-size': ['100', '125', '150'],
   theme: ['dark', 'light'],
-  texture: ['wood', 'flat'],
+  texture: ['grid', 'flat'],
 };
 const settingsKey = 'tessel.portableforge.display.v1';
 let state = createState(new URLSearchParams(location.search).get('fixture'));
