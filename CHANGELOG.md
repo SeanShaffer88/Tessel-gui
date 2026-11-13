@@ -2,6 +2,18 @@
 
 Releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
+## 1.4.0 · 2026-11-13
+
+Twenty-four enhancements. Additive: no existing role changes value (see [migration notes](docs/migration.md)).
+
+- Themes and roles: a High Contrast theme (`data-theme="high-contrast"`, 7:1 text, yellow focus, WPF `Tessel.HighContrast.xaml`, Rust, Godot and Slint exports); 13 new roles in every theme (`selectedStrong`, `hover`, `pressed`, four status fills, disabled, read-only, text selection, two find roles); syntax colors; elevation levels and scrim; OKLab accent tints; a full forced-colors mapping.
+- Contract: surface luminance steps are now per theme (`contrast.surfaceLuminanceStep`).
+- Component specs: focus rings (outline and inset), dense tables, tabs, trees, breadcrumbs, status bar, and empty, loading, error and offline state templates with an example per category.
+- Interaction specs: command palette registry, layout presets, docking and multiple views, infinite canvas, undo stack and undo toast, quiet inline feedback.
+- Delivery: `packages/npm` and `packages/rust` (`tesselgui-tokens`, generated, CC BY 4.0 and MIT, not yet published); a live contrast checker at `demo/contrast/`; `docs/migration.md`.
+- Images: the workspace and category captures were retaken from the demo; the dark and Graphite mockups were recolored to the 1.3.0 values and the dark slideshow GIF rebuilt. Light assets are unchanged.
+- Tests: 51 tests (up from 26), including per-theme contrast for every new role, binding-collision checks across shortcuts, layouts and canvas, and generated-package parity.
+
 ## 1.3.0 · 2026-11-13
 
 - Color: the dark theme now matches GitHub Dark High Contrast as shown in VS Code. Background `#010409`, surface `#0A0C10`, raised `#191C20`, selected `#272B33`, text `#F0F3F6` / `#BDC4CC`, edge and border `#7A828E`, selection `#409EFF`, focus `#71B7FF`, warning `#F0B72F`, grid `#0F1318`. Light theme and the Blue, Teal and Graphite presets are unchanged.

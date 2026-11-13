@@ -24,14 +24,16 @@ Tessel applies to any desktop product by changing which region dominates, not by
 | Monitoring & analytics | One metric or chart | Node list, events, filters | Rows Compact | Acknowledge, Resolve | Every chart has a table alternative and a text summary. Series colors do not use the brand accent. Status needs words |
 | Utility & wizard | Current step | Step list, progress, actions | Comfortable | Continue, Start | No scrollbars. Preview before destructive work. Cancel always reachable |
 | Communication | Conversation (≈50%) | Conversation list, contact detail | Rows Compact | Send | Asymmetric by design. Unread uses text and weight, not color alone |
-| CAD & 3D | Viewport (≈70%) | Feature tree, properties, command line | Compact | Commit | The viewport may use depth, perspective and its own palette. Chrome stays flat. Provide keyboard orbit, pan and zoom |
+| CAD & 3D | Viewport (≈70%) | Feature tree, properties, command line | Compact | Commit | The viewport may use depth, perspective and its own palette. Chrome stays flat. Provide keyboard orbit, pan and zoom. See [canvas](canvas.md) |
 | Settings & system tools | The form | Section list, staged Apply/Cancel | Comfortable | Apply | Immediate and staged settings are clearly separated. Draft survives section changes. Search sections when there are many |
 | Document & reader | The page (≈60%) | Outline, comments, search, status | Rows Compact, reading text Comfortable | Save, Share | Text measure 60 to 80 characters. Zoom keeps layout. Outline and comments are keyboard reachable |
 | Spreadsheet & grid | The grid (≈80%) | Formula bar, sheet tabs, side panel, status | Everything Compact | Calculate, Save | Row and column gridlines in `edge`. Frozen headers. Tabular figures right-aligned. Arrow keys move the cell; typing edits it |
 | Admin & network console | Resource table (≈60%) | Tree, filters, detail drawer, log | Rows Compact | Apply, Restart | Destructive actions confirm with the target named. Status uses icon plus text. Logs are bounded and searchable |
 | Launcher & hub | Recent items and tasks (≈60%) | Search, pinned items, shortcuts | Comfortable | Open, Create | Empty states show the primary action, recent items and shortcuts. Search is focused on open |
-| Whiteboard & collaboration canvas | Canvas (≈75%) | Tool rail, layers, people, comments | Toolbars Compact | Share | Presence uses name plus color. Every canvas action has a keyboard path. Grid shows as the empty canvas |
+| Whiteboard & collaboration canvas | Canvas (≈75%) | Tool rail, layers, people, comments | Toolbars Compact | Share | Presence uses name plus color. Every canvas action has a keyboard path. Grid shows as the empty canvas. See [canvas](canvas.md) |
 | Scientific & instrument | Plot or readout (≈65%) | Channels, parameters, log | Compact | Run, Acquire | Units always shown. Live values use tabular figures. Every plot has a table alternative. Stop is always reachable |
+
+See [empty, loading and error states](states.md) for a state template per archetype.
 
 ## Multi-mode creative products
 

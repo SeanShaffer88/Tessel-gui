@@ -1,10 +1,12 @@
-# Verification record · revision 2
+# Verification record · revision 2 (updated for 1.4.0)
 
 ## Verification
 
 Revision 2 targets WCAG 2.2 AA. This section records what ran and what did not. Evidence labels: Verified, Partially verified, Unverified.
 
 ### Local results
+
+- **Verified (1.4.0).** `node --test` passes 51 tests, including per-theme contrast for the High Contrast theme and every new role, binding-collision checks and package parity. `node tools/build-tokens.mjs --check` reports outputs current. The Rust export and the generated crate compile. All four XAML exports parse. The contrast checker loads in headless Chrome and reports all 64 Dark checks passing. The workspace and category images were retaken from the demo in headless Chrome and the recolored mockups were inspected by eye.
 
 - **Verified.** For revision 2, `node --test` passes, including the token contrast checks in both encodings, per-preset action and accent contrast (now including the Crimson preset against the GitHub surfaces), and the demo state checks. `node tools/build-tokens.mjs --check` reports outputs current. The Rust export compiles with `rustc --edition 2021 --crate-type lib`. All XAML exports parse as well-formed XML. The Chrome reference check runs in CI.
 - **Verified.** The README images match revision 2: the workspace (1440 × 1000) and category-layout captures were retaken from the demo in headless Chrome and inspected by eye; the mockup sets were recolored to the exact token values with a palette mapping that leaves non-token pixels (the editor mockups' canvas artwork) untouched, confirmed by a zero count of revision 1 palette colors in the results; both slideshow GIFs were rebuilt from the new frames at the same size, frame order and timing.

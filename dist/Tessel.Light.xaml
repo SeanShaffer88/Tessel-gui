@@ -54,6 +54,32 @@
   <SolidColorBrush x:Key="VgGridBrush" Color="#F2F2F5" />
   <Color x:Key="VgSurroundColor">#D6D6D6</Color>
   <SolidColorBrush x:Key="VgSurroundBrush" Color="#D6D6D6" />
+  <Color x:Key="VgSelectedStrongColor">#CACAD3</Color>
+  <SolidColorBrush x:Key="VgSelectedStrongBrush" Color="#CACAD3" />
+  <Color x:Key="VgHoverColor">#D5D5DD</Color>
+  <SolidColorBrush x:Key="VgHoverBrush" Color="#D5D5DD" />
+  <Color x:Key="VgPressedColor">#C9C9D3</Color>
+  <SolidColorBrush x:Key="VgPressedBrush" Color="#C9C9D3" />
+  <Color x:Key="VgInfoFillColor">#DDF4FF</Color>
+  <SolidColorBrush x:Key="VgInfoFillBrush" Color="#DDF4FF" />
+  <Color x:Key="VgWarningFillColor">#FFF8C5</Color>
+  <SolidColorBrush x:Key="VgWarningFillBrush" Color="#FFF8C5" />
+  <Color x:Key="VgSuccessFillColor">#DAFBE1</Color>
+  <SolidColorBrush x:Key="VgSuccessFillBrush" Color="#DAFBE1" />
+  <Color x:Key="VgDangerFillColor">#FFEBE9</Color>
+  <SolidColorBrush x:Key="VgDangerFillBrush" Color="#FFEBE9" />
+  <Color x:Key="VgDisabledForegroundColor">#7E7E8A</Color>
+  <SolidColorBrush x:Key="VgDisabledForegroundBrush" Color="#7E7E8A" />
+  <Color x:Key="VgDisabledFillColor">#F2F2F5</Color>
+  <SolidColorBrush x:Key="VgDisabledFillBrush" Color="#F2F2F5" />
+  <Color x:Key="VgReadOnlyFillColor">#F4F4F7</Color>
+  <SolidColorBrush x:Key="VgReadOnlyFillBrush" Color="#F4F4F7" />
+  <Color x:Key="VgTextSelectionColor">#B6D6FB</Color>
+  <SolidColorBrush x:Key="VgTextSelectionBrush" Color="#B6D6FB" />
+  <Color x:Key="VgFindMatchColor">#FFE97A</Color>
+  <SolidColorBrush x:Key="VgFindMatchBrush" Color="#FFE97A" />
+  <Color x:Key="VgFindMatchActiveColor">#FFD33D</Color>
+  <SolidColorBrush x:Key="VgFindMatchActiveBrush" Color="#FFD33D" />
   <FontFamily x:Key="VgFontSans">Segoe UI</FontFamily>
   <FontFamily x:Key="VgFontMono">Cascadia Mono</FontFamily>
   <sys:Double x:Key="VgFontSizeCaption">11</sys:Double>

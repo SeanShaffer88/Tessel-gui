@@ -1,0 +1,39 @@
+{
+  "name": "tesselgui-tokens",
+  "version": "1.4.0",
+  "description": "TesselGUI design tokens: palettes, syntax colors, type, space, motion and component specs as JSON and CSS.",
+  "license": "CC-BY-4.0 AND MIT",
+  "type": "module",
+  "main": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.mjs"
+    },
+    "./tessel.css": "./tessel.css",
+    "./tessel.tokens.json": "./tessel.tokens.json",
+    "./tokens.source.json": "./tokens.source.json"
+  },
+  "files": [
+    "index.mjs",
+    "index.d.ts",
+    "tessel.css",
+    "tessel.tokens.json",
+    "tokens.source.json",
+    "README.md",
+    "LICENSE",
+    "LICENSE-CODE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanShaffer88/TesselGUI.git",
+    "directory": "packages/npm"
+  },
+  "homepage": "https://github.com/SeanShaffer88/TesselGUI",
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "tessel"
+  ]
+}

@@ -26,6 +26,10 @@ Open `http://127.0.0.1:8000/demo/`. Stop the server with Ctrl+C. This binds to l
 - Start simulation: begins at zero. Pause freezes progress; Resume continues. Cancel and completion stop the timer. A new start clears old progress. Only this explicit action starts a job.
 - Feedback & recovery: select validation, empty, offline, or error examples. Retry is a local demonstration; it never contacts a service. Names validate locally and are not saved.
 
+## Contrast checker
+
+`contrast/index.html` loads `docs/tokens.json`, lists every pairing the standard checks for Dark, Light or High Contrast, and recomputes the ratios as you edit a role. It saves nothing and sends nothing. Its pure helpers in `contrast/contrast.mjs` are covered by `contrast/contrast.test.mjs`.
+
 ## Persistence and boundaries
 
 The `tessel.display.v1` localStorage entry contains versioned theme, accent ID, density, effects, inspector width, collapse preference, settings section, and pin preference. Input is bounded to 2 KiB, checked against allowlists and width limits, and unrelated fields are discarded. Older version-1 records retain their choices and gain GitHub, Appearance, and unpinned defaults. Malformed, denied, or unavailable storage falls back to defaults. No task content is persisted. Delete this one key in browser developer tools to clear all display choices. Reset layout only resets geometry.

@@ -80,10 +80,10 @@ test('CSS and machine-readable palette agree across fallback, OKLCH, and System 
   assert.ok(Math.max(tokens.motion.shortTransition, tokens.motion.panelTransition) <= tokens.motion.maximumTransition);
 });
 
-test('dark surface levels step 5–10% in relative luminance in both encodings', () => {
+test('dark surface levels keep their documented relative luminance step in both encodings', () => {
   for (const palette of [tokens.color, tokens.colorOklch.dark]) {
     const levels = [palette.background, palette.surface, palette.raised].map(luminance);
-    const [min, max] = tokens.contrast.darkSurfaceRelativeLuminanceStep;
+    const [min, max] = tokens.contrast.surfaceLuminanceStep.dark;
     for (let i = 1; i < levels.length; i++) {
       const step = levels[i] / levels[i - 1] - 1;
       assert.ok(step >= min && step <= max, `Relative luminance step: ${step}`);

@@ -1,0 +1,13 @@
+[package]
+name = "tesselgui-tokens"
+version = "1.4.0"
+edition = "2021"
+description = "TesselGUI design tokens: palettes, syntax colors, density, type and motion as dependency-free constants."
+license = "CC-BY-4.0 AND MIT"
+repository = "https://github.com/SeanShaffer88/TesselGUI"
+readme = "README.md"
+keywords = ["design-tokens", "gui", "theme"]
+categories = ["gui"]
+
+[lib]
+path = "src/lib.rs"

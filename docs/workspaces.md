@@ -5,6 +5,9 @@ Applies to products with several distinct jobs inside one window: video, audio a
 
 *Screenshot of the running workspace demo. All names and data are fictional.*
 
+
+Related: [layouts, docking and multiple views](layouts.md) and [infinite canvas](canvas.md).
+
 ## Modes
 
 A mode is a saved layout for one job (Edit, Mix, Deliver). Use modes when the user's goal changes enough that a different dominant region is needed.
