@@ -2,6 +2,20 @@
 
 Releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
+## 2.0.0 · 2026-11-13
+
+Design revision 3. Breaking: the default scheme is replaced (see [migration notes](docs/migration.md)).
+
+- Scheme: a futuristic, minimal standard inspired by Tron Legacy and The Matrix. Dark charcoal surfaces — editor background `#1B1B1D`, surface `#1F1F22`, panels `#232326`, selected `#2A2A2F` — soft off-white text `#E6E3E1`, muted gray secondary text `#89868A`, and one deep, restrained Carmine accent `#960018`. The light theme keeps its surfaces and takes the Carmine family (brighter Carmine focus `#C8102E`).
+- Carmine details: the primary action is a Carmine fill with a white label (9.09:1) and a 1px border rim; the active tab carries a thin Carmine underline; selected text is a soft gray highlight with a thin Carmine edge; the text cursor is off-white with a tiny Carmine cap; the near-black status bar carries muted labels and a small Carmine indicator; keyboard focus is a thin Carmine outline (2px, 2px offset).
+- Contrast contract, stated plainly: Carmine indicators measure 1.89:1 on the background down to 1.38:1 on the strong selected fill, so a Carmine indicator is never the only cue (fill change, label, position or native state always pairs it). Dark muted text is 4.78:1 on the editor background and is scoped to short labels on raised and selected fills. Both rules are tokenized (`contrast.accentIndicatorRule`, `contrast.mutedRule`) and tested. The High Contrast theme is unchanged.
+- Syntax: muted with moderate distinction — keyword `#72AAA5` (muted teal), string `#A3B58A` (subdued sage), punctuation and numbers `#B8AAA0` (warm gray), comment `#89868A`; the light set is the same families darkened.
+- Grid: the fine square grid (`#28282B`, 24px cells) is now visible in empty areas and fades behind code. The revision 2 wood-grain texture is retired (swatch, demo option and test removed).
+- Density: compact-first. The default density is Compact, navigation is a Compact class, and compact panel padding is 8.
+- Typography: the monospace stack leads with the classic Consolas; the interface stays a clean modern sans-serif.
+- Presets: Carmine is the new default preset. The revision 2 scheme remains available unchanged as the GitHub preset; Crimson, Blue, Teal and Graphite are unchanged. A missing or unknown preset ID now falls back to Carmine.
+- Images: the dark and light mockups, the workspace and category captures and both slideshow GIFs were recolored to the revision 3 token values (the editor mockups' canvas artwork is unchanged). Fresh captures from the running demo are still the reference for exact rendering.
+
 ## 1.4.0 · 2026-11-13
 
 Twenty-four enhancements. Additive: no existing role changes value (see [migration notes](docs/migration.md)).
