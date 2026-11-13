@@ -147,13 +147,13 @@ await withReferenceChrome(root, async ({ call, origin, errors, requests, version
   }
   await fit('standard capture');
   await select('#theme', 'dark');
-  await select('#texture', 'wood');
-  assert.match(await backgroundImage(), /tessel-wood-grain\.svg/, 'dark wood-grain preset draws the texture');
+  await select('#texture', 'grid');
+  assert.match(await backgroundImage(), /linear-gradient/, 'dark grid preset draws the grid texture');
   await select('#texture', 'flat');
   assert.equal(await backgroundImage(), 'none', 'flat preset clears the texture');
-  await select('#texture', 'wood');
+  await select('#texture', 'grid');
   await select('#theme', 'light');
-  assert.equal(await backgroundImage(), 'none', 'light theme clears the texture');
+  assert.match(await backgroundImage(), /linear-gradient/, 'light theme keeps the grid texture');
   await select('#theme', 'dark');
   await call('Emulation.setEmulatedMedia', { features: [{ name: 'forced-colors', value: 'active' }] });
   assert.equal(await backgroundImage(), 'none', 'forced colors clear the texture');

@@ -1,6 +1,6 @@
 # TesselGUI
 
-A dense, tactile interface standard for desktop software of any kind, in dark and light.
+A futuristic, minimal interface standard for desktop software of any kind: dark charcoal, one deep Carmine accent, a fine grid, in dark and light.
 
 [![Validation status](https://github.com/SeanShaffer88/TesselGUI/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/SeanShaffer88/TesselGUI/actions/workflows/validate.yml) · [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Category layouts](https://seanshaffer88.github.io/TesselGUI/demo/categories/) · [Contrast checker](https://seanshaffer88.github.io/TesselGUI/demo/contrast/) · [Quick reference](docs/quick-reference.md) · Docs [CC BY 4.0](LICENSE) · Code and tokens [MIT](LICENSE-CODE)
 
@@ -10,18 +10,23 @@ A dense, tactile interface standard for desktop software of any kind, in dark an
 > and system settings. It specifies the tokens, regions, density and behavior
 > needed for long sessions in high-density interfaces.
 
-**Contents** · [Revision 2](#revision-2) · [Six rules](#six-rules) · [See it](#see-it) · [Any category](#any-category) · [Adopt Tessel](#adopt-tessel) · [Open questions](#open-questions)
+**Contents** · [Revision 3](#revision-3) · [Six rules](#six-rules) · [See it](#see-it) · [Any category](#any-category) · [Adopt Tessel](#adopt-tessel) · [Open questions](#open-questions)
 
-## Revision 2
+## Revision 3
 
-The default dark theme now matches GitHub Dark High Contrast (as shown in VS Code): near-black
-blue-gray surfaces, GitHub blue for selection and focus, and GitHub green
-primary actions that meet 3:1 on every surface, with the light theme using the
-matching GitHub Light accent family. Structure from edges instead of tiny
-luminance steps, density chosen per component class, a grid signature that
-carries meaning, presets that recolor the whole accent (the revision 1 Crimson
-scheme is now a preset), and a layout guide for eight product categories. See
-the [changelog](CHANGELOG.md), [audit](AUDIT.md) and [decisions](docs/decisions.md).
+A futuristic, minimal standard inspired by Tron Legacy and The Matrix. Dark
+charcoal, near-black surfaces (editor background `#1B1B1D`, panels `#232326`),
+soft off-white text, and one deep, restrained Carmine accent (`#960018`) used
+sparingly: the primary action fill, a thin underline on the active tab, a thin
+edge on selected text and rows, a small indicator in the near-black status
+bar, and a thin focus outline. Syntax is muted — teal keywords, sage strings,
+warm-gray numbers — and a fine square grid (`#28282B`) shows in empty areas
+and fades behind code. The interface is compact with minimal padding, set in
+a clean modern sans-serif with a classic monospace for code. Carmine is
+restrained by design, so it is never the only cue; the trade-off and the
+measured values are stated in the [materials guide](docs/materials.md). The
+revision 2 GitHub scheme survives as the GitHub preset. See the
+[changelog](CHANGELOG.md) and [migration notes](docs/migration.md).
 
 ## Six rules
 
@@ -101,10 +106,10 @@ Cross-cutting rules: [motion](docs/motion.md), [typography](docs/typography.md),
 | Density has rhythm | 6 CSS px minimum between distinct grouped controls, 8 default, 12–16 between groups, 24 between sections |
 | Density is per component | Compact rows (28) and controls (32) for repeated work. Comfortable (36/40) for forms and dialogs. Touch (48). [Density](docs/design-guidelines.md#density) |
 | The current task fits | Windows, dialogs, forms and wizard pages fit without scrollbars. Data containers scroll inside their own bounded viewport. The main window never scrolls |
-| The accent is scarce | Primary action `#1A7F37` (dark) with a white label, 3:1 on every surface. Deep `#15263C` only for large tinted regions with a marker. [Accent roles](docs/materials.md#accent-roles) |
-| Edges carry structure | Three high-contrast dark surface levels mark state. A 1px `edge` (`#7A828E`) separates compartments |
-| The grid has a job | A 24 px grid in empty states and canvases, ten-segment progress, and a 2px active-region rule. [Grid signature](docs/materials.md#grid-signature) |
-| Presets recolor the whole accent | GitHub is the default. Crimson, Blue, Teal and the neutral Graphite change the primary action, selection, focus and deep accent together |
+| The accent is scarce | Primary action Carmine `#960018` with a white label and a border rim. Deep Carmine only for large tinted regions with a marker. [Accent roles](docs/materials.md#accent-roles) |
+| Edges carry structure | Three dark-charcoal surface levels mark state. A 1px `edge` (`#43434A`) separates compartments |
+| The grid has a job | A fine 24 px grid visible in empty areas and fading behind code, ten-segment progress, and a 2px active-region rule. [Grid signature](docs/materials.md#grid-signature) |
+| Presets recolor the whole accent | Carmine is the default. GitHub, Crimson, Blue, Teal and the neutral Graphite change the primary action, selection, focus and deep accent together |
 | Keyboard access starts at the surface | Logical Tab order, visible focus, Commands on Ctrl/⌘+K |
 
 Tessel targets [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including 4.5:1
@@ -129,7 +134,7 @@ show project-specific mockups for review before implementation.
 
 ## Open questions
 
-- How well do the green primary and blue selection and their supporting text or shape hold up for users with color-vision deficiencies? A simulator pass is pending.
+- How well do the Carmine primary and selection and their supporting text or shape hold up for users with color-vision deficiencies? A simulator pass is pending.
 - Where should the density rhythm change on tablets and other touch hardware?
 - Does the grid motif need a variant for very high-contrast or monochrome displays?
 

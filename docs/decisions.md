@@ -8,6 +8,15 @@ Design ideas that came up while writing revision 1, and what the standard does w
 | --- | --- |
 | GitHub Dark as the default scheme | Adopted. The default dark palette matches GitHub Dark (surfaces, text, edges, blue selection and focus, green primary actions, GitHub status colors); the light theme keeps its surfaces and takes the GitHub Light accent family. Version 1.3.0 moves the dark values to GitHub Dark High Contrast. The revision 1 Crimson scheme stays available as a preset with its original values. Two values are Tessel-adjusted rather than copied: the resting action green is one step darker than GitHub's button green so the white label keeps the 5:1 target, and the dark `selected` fill sits below GitHub's hover fill so every preset's selection marker keeps 3:1 on it |
 
+## Revision 3 (2026-11-13)
+
+| Idea | Decision |
+| --- | --- |
+| Futuristic minimal Carmine scheme as the default | Adopted as version 2.0.0. The default dark palette is dark charcoal (`#1B1B1D` editor background, `#232326` panels) with one deep, restrained Carmine accent (`#960018`) for the primary action fill and for thin indicators: the active-tab underline, the selection edge, the status-bar indicator and the focus outline. Text is soft off-white (`#E6E3E1`) with muted gray secondary text (`#89868A`); syntax is muted teal keywords (`#72AAA5`), subdued sage strings (`#A3B58A`) and warm-gray punctuation and numbers (`#B8AAA0`). The mood is Tron Legacy and The Matrix: futuristic, minimal, compact. The revision 2 GitHub scheme stays available as the GitHub preset with its original values |
+| Carmine indicators below 3:1 | Accepted and documented, not hidden. Deep Carmine measures 1.89:1 on the background down to 1.38:1 on the strong selected fill, so it is never the only cue: selection also changes the fill, the active tab also carries its label and position, focus also shows the native control state, and the text cursor is off-white with only a Carmine cap. The primary action is bounded by a border rim and a white label at 9.09:1. The High Contrast theme is unchanged for anyone who needs 7:1 indicators |
+| Grid behind code | Adopted. The fine square grid (`#28282B`, 24px cells) is visible in empty areas and fades behind code and dense content instead of disappearing. The revision 2 wood-grain texture is retired |
+| Compact-first density | Adopted. Navigation joins the Compact classes and compact panel padding drops to 8. Forms and dialogs stay Comfortable |
+
 ## Adopted
 
 | Idea | Decision |

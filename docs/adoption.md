@@ -24,7 +24,7 @@ How to bring the standard into a project. Take the generated token export for yo
 5. **Keyboard.** A path for every task, visible shortcuts, Ctrl/⌘+K for commands. Resize and collapse work from the keyboard.
 6. **States.** Empty, loading, success, error, disabled, offline and confirm. Status uses text plus an icon.
 7. **Themes.** Dark and Light, plus High Contrast and forced colors using native system colors. Offer Graphite for color-critical work.
-8. **Optional texture.** The [wood grain](materials.md#dark-wood-grain) is for exposed dark backgrounds only. Dense surfaces stay flat.
+8. **Background texture.** The [fine square grid](materials.md#grid-signature) shows in empty areas and fades behind code. Dense reading surfaces stay flat.
 
 ## 3. Native Windows notes
 

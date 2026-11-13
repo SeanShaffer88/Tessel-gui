@@ -1,4 +1,4 @@
-# Tessel design guidelines · revision 2
+# Tessel design guidelines · revision 3
 
 A dense, tactile standard for long-session desktop software of any kind: editors, data tools, media tools, monitors, utilities, communication, CAD, and system settings. It defines tokens, regions, density, and behavior. It does not define your product's content. [One-page summary](quick-reference.md) · [Category layouts](categories.md) · [Workspaces](workspaces.md) · [Polish checklist](polish.md) · [Decisions](decisions.md) · [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Category demo](https://seanshaffer88.github.io/TesselGUI/demo/categories/) · [Tokens](tokens.json)
 
@@ -14,14 +14,14 @@ A dense, tactile standard for long-session desktop software of any kind: editors
 
 ## Color
 
-Three GitHub-dark surfaces (`background`, `surface`, `raised`) plus `selected`. They step in luminance, and the high-contrast `edge` (`#7A828E`) still carries structure.
+Three dark-charcoal surfaces (`background` `#1B1B1D`, `surface`, `raised` `#232326`) plus `selected`. The mood is futuristic and minimal, inspired by Tron Legacy and The Matrix: near-black surfaces, one deep Carmine accent (`#960018`), and a fine square grid that shows in empty areas and fades behind code. Surfaces step gently in luminance, and the 1px `edge` (`#43434A`) carries structure.
 
 | Role | Use | Rule |
 | --- | --- | --- |
-| `action`, `actionHover`, `actionPressed` | The primary action fill | GitHub green in the default scheme. 3:1 against every surface, so it needs no extra rim. `actionForeground` label ≥5:1 (hover ≥4.5:1) |
-| `accent` (`#15263C` dark, `#0550AE` light) | Large tinted regions such as a selected row band or banner | 1.5:1 on dark surfaces. Never alone. Always with a marker and a label |
-| `selectionIndicator` | Selection marker, active-region rule | ≥3:1 on every surface and the grid |
-| `focus` | Keyboard focus outline | Independent of selection. A focused selected item shows both |
+| `action`, `actionHover`, `actionPressed` | The primary action fill | Carmine in the default scheme, with a 1px `border` rim and a white label: label ≥5:1 (hover ≥4.5:1). In the light theme the fill also reaches 3:1 against every surface |
+| `accent` (`#960018` in both themes) | Large tinted regions such as a selected row band or banner | Never alone. Always with a marker and a label. Label ≥5:1 |
+| `selectionIndicator` | Selection marker, active-tab underline, active-region rule | Carmine. In the dark theme it is a restrained indicator (≥1.35:1) and is never the only cue: the row also changes fill, the tab also carries its label. In the light theme ≥3:1 |
+| `focus` | Keyboard focus outline | A thin Carmine outline in the dark theme (same Carmine as selection, told apart by geometry); a brighter Carmine in the light theme, where a focused selected item shows both cues by color as well |
 | `edge` | 1px compartment and table borders | ≥1.4:1 against all surfaces |
 | `border` | Control boundaries (fields, secondary buttons) | ≥3:1 |
 | `grid` | The grid motif lines | 1.04–1.3:1 against surfaces. Text over it stays ≥4.5:1 |
@@ -29,7 +29,7 @@ Three GitHub-dark surfaces (`background`, `surface`, `raised`) plus `selected`. 
 
 Primary action: one per view, accent fill, clear verb. Secondary actions use `raised` with a `border`. Destructive actions use `danger` text with an icon and a confirmation that names the effect.
 
-Theme (System, Light, Dark) and accent preset are independent. The default preset is GitHub; Crimson, Blue, Teal and Graphite are alternatives. A preset recolors `accent`, the primary action, selection, and focus together, so a Blue product does not carry green buttons. Forced-colors mode uses system colors.
+Theme (System, Light, Dark) and accent preset are independent. The default preset is Carmine; GitHub, Crimson, Blue, Teal and Graphite are alternatives kept from earlier revisions. A preset recolors `accent`, the primary action, selection, and focus together, so a Blue product does not carry Carmine buttons. Forced-colors mode uses system colors.
 
 ## Layout
 
@@ -55,8 +55,8 @@ Density is per component class. [Tokens](tokens.json) hold the numbers.
 
 | Class | Default | Control height | Row height |
 | --- | --- | --- | --- |
-| Data rows, trees, toolbars, panel headers, timelines, meters | Compact | 32 | 28 |
-| Navigation, forms, dialogs | Comfortable | 40 | 36 |
+| Data rows, trees, toolbars, panel headers, timelines, meters, navigation | Compact | 32 | 28 |
+| Forms, dialogs | Comfortable | 40 | 36 |
 | Touch input | Touch | 48 | 48 |
 
 A user can override the whole app in Settings (Per component, Compact, Comfortable, Touch). Density changes spacing everywhere and the type role of rows and controls only (see [typography](typography.md)); reading text stays at body size. Keep 6 px minimum between independent controls (8 default), 12–16 between groups, 24 between sections. Narrow or coarse-pointer contexts raise targets to 44 px.
@@ -71,17 +71,18 @@ Severity, placement, toasts, confirmations, error wording and progress rules are
 
 ## Typography
 
-Windows: Segoe UI. macOS and Linux use the system UI font (`system-ui`). Monospace: Cascadia Mono, then Consolas, then the platform default. Body is 16 CSS px at the default text size and follows user scaling. Weight and placement set hierarchy before color or glow. The full scale, line heights, numeric and truncation rules are in [typography](typography.md). Monospace is for code, timecodes and aligned technical values only.
+Interface: a clean, modern sans-serif — Segoe UI on Windows, the system UI font (`system-ui`) on macOS and Linux. Code: a classic monospace — Consolas, then Cascadia Mono, then Courier New. Body is 16 CSS px at the default text size and follows user scaling. Weight and placement set hierarchy before color or glow. The full scale, line heights, numeric and truncation rules are in [typography](typography.md). Monospace is for code, timecodes and aligned technical values only.
 
 ## Signature: the grid
 
 The grid is a quiet motif that carries meaning in three places and nowhere else:
 
-1. **Empty states and canvases:** a 24 px line grid in `grid`. It says "space to fill." Never behind text-dense content.
-2. **Determinate progress:** ten equal segments. Indeterminate progress uses a moving segment and stops under reduced motion.
-3. **Active-region rule:** the accent header rule is the grid's one bright line.
+1. **Empty areas and canvases:** a fine square grid, 24 px cells with 1px lines in `grid`. It says "space to fill."
+2. **Behind code:** the same grid stays faintly visible in empty editor areas and fades behind code and dense content instead of disappearing.
+3. **Determinate progress:** ten equal segments. Indeterminate progress uses a moving segment and stops under reduced motion.
+4. **Active-region rule:** the Carmine header rule is the grid's one accent line.
 
-The grid is static and decorative. Fields, buttons, rows and state fills stay solid. The soft wood-grain treatment is an optional dark background; see [materials](materials.md#dark-wood-grain).
+The grid is static. Fields, buttons, rows and state fills stay solid. Revision 3 retires the wood-grain texture from revision 2; the grid is the only background texture. See [materials](materials.md#grid-signature).
 
 ## Interaction and feedback
 
@@ -91,7 +92,7 @@ Context awareness means OS signals only: theme, contrast, reduced motion, text s
 
 ## Accessibility
 
-Target WCAG 2.2 AA: 4.5:1 normal text, 3:1 large text and required non-text indicators, a 44 × 44 CSS px touch policy (stricter than AA's 24 × 24 criterion). Static images cannot show keyboard behavior, screen-reader output or reduced-motion support. Test in the target application and record platform, settings and results before claiming support. Test accent cues with a color-vision simulator: selection and status always have a text or shape cue.
+Target WCAG 2.2 AA: 4.5:1 normal text and 3:1 large text, a 44 × 44 CSS px touch policy (stricter than AA's 24 × 24 criterion). Two revision 3 exceptions are documented rather than hidden: dark muted text sits at 4.37:1 on raised panels (short labels only; reading text uses the foreground role), and Carmine indicators are restrained (from 1.89:1 on the background down to 1.38:1 on the strong selected fill), so each is always paired with a second cue — a fill change, a label, a position or a native state. The High Contrast theme keeps the full 7:1 targets for anyone who needs them. Static images cannot show keyboard behavior, screen-reader output or reduced-motion support. Test in the target application and record platform, settings and results before claiming support. Test accent cues with a color-vision simulator: selection and status always have a text or shape cue.
 
 ## Adaptation
 

@@ -1,4 +1,4 @@
-# Tessel quick reference · revision 2
+# Tessel quick reference · revision 3
 
 One page. Full rules: [design guidelines](design-guidelines.md). Numbers: [tokens.json](tokens.json).
 
@@ -29,23 +29,26 @@ One page. Full rules: [design guidelines](design-guidelines.md). Numbers: [token
 
 | Role | Value | Use |
 | --- | --- | --- |
-| background / surface / raised / selected | `#010409` `#0A0C10` `#191C20` `#272B33` | Surfaces |
-| hover / pressed / strong selection | `#20242B` `#2E333B` `#40454D` | Control states, active tree item |
-| edge / border | `#7A828E` / `#7A828E` | Compartment borders, control boundaries |
-| action / hover / pressed | `#1A7F37` `#238636` `#116329` | Primary fill, white label |
-| selection indicator / focus | `#409EFF` / `#71B7FF` | Marker, rule / keyboard focus |
-| accent (deep) | `#15263C` | Large tinted regions with a marker |
-| grid | `#0F1318` | Empty states, canvases, progress segments |
+| editor background / surface / panels (raised) / selected | `#1B1B1D` `#1F1F22` `#232326` `#2A2A2F` | Surfaces |
+| hover / pressed / strong selection | `#28282D` `#2E2E34` `#33333A` | Control states, active tree item |
+| edge / border | `#43434A` / `#76767C` | Compartment borders, control boundaries |
+| main text / secondary text | `#E6E3E1` / `#89868A` | Interface text; comments use the secondary color |
+| Carmine accent, action / hover / pressed | `#960018` `#A81226` `#7E0014` | Primary fill with a border rim, white label |
+| selection indicator / focus | `#960018` / `#960018` | Thin Carmine edge, underline and outline — never the only cue |
+| syntax keyword / string / numbers | `#72AAA5` / `#A3B58A` / `#B8AAA0` | Muted teal, subdued sage, warm gray |
+| grid | `#28282B` | Fine square grid: empty areas, fading behind code |
 
-Themes: Dark (default), Light and High Contrast (`data-theme="high-contrast"`, 7:1 text, yellow focus `#FFD33D`). Also: [syntax colors](materials.md#syntax-colors), [elevation](materials.md#elevation), [accent tints](materials.md#accent-tints), [state and editing roles](materials.md#state-and-editing-roles).
+Themes: Dark (default, the Carmine standard above), Light (same Carmine family on light surfaces, brighter Carmine focus `#C8102E`) and High Contrast (`data-theme="high-contrast"`, 7:1 text, yellow focus `#FFD33D`). The status bar is near-black (`#191919`) with muted labels and a small Carmine indicator. The text cursor is off-white with a tiny Carmine cap; selected text is a soft gray highlight (`#3F3F46`) with a thin Carmine edge. Also: [syntax colors](materials.md#syntax-colors), [elevation](materials.md#elevation), [accent tints](materials.md#accent-tints), [state and editing roles](materials.md#state-and-editing-roles).
 
 ## Density
 
 | Class | Control | Row |
 | --- | --- | --- |
-| Compact (rows, trees, toolbars) | 32 | 28 |
-| Comfortable (forms, dialogs, nav) | 40 | 36 |
+| Compact (rows, trees, toolbars, nav) | 32 | 28 |
+| Comfortable (forms, dialogs) | 40 | 36 |
 | Touch | 48 | 48 |
+
+Revision 3 is compact-first with minimal padding: compact panel padding is 8, gaps stay 6 min, 8 default, 12–16 between groups, 24 between sections.
 
 Gaps: 6 min, 8 default, 12–16 between groups, 24 between sections.
 

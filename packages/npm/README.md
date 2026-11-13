@@ -1,6 +1,6 @@
 # tesselgui-tokens
 
-Design tokens for [TesselGUI](https://github.com/SeanShaffer88/TesselGUI), version 1.4.0. Generated from `docs/tokens.json`. Do not edit.
+Design tokens for [TesselGUI](https://github.com/SeanShaffer88/TesselGUI), version 2.0.0. Generated from `docs/tokens.json`. Do not edit.
 
 ```js
 import { palettes, syntax } from 'tesselgui-tokens';

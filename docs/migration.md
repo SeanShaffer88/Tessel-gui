@@ -2,6 +2,25 @@
 
 What changed for consumers of the tokens, and how to update. Releases are listed newest first. [Changelog](../CHANGELOG.md).
 
+## 1.4.0 → 2.0.0
+
+Breaking. Design revision 3 replaces the default scheme. Every dark color role changes value, the default preset changes, and the wood-grain texture is removed.
+
+| Change | Action |
+| --- | --- |
+| Default scheme is now Carmine: editor background `#1B1B1D`, panels `#232326`, text `#E6E3E1` / `#89868A`, Carmine `#960018` for the action fill, selection edge, tab underline and focus outline | Replace hard-coded dark hex values with the new tokens; regenerate exports |
+| Default preset `github` → `carmine` | A missing or unknown preset ID now falls back to Carmine. Set `data-accent="github"` to keep the revision 2 scheme exactly; stored `github` preferences stay valid |
+| Carmine indicator rule | Carmine indicators are restrained (from 1.89:1 down to 1.38:1) and are never the only cue. Check custom UI that used the selection or focus color alone: pair it with a fill change, a label or a native state. The dark primary action now needs its 1px `border` rim |
+| Muted rule | Dark muted (`#89868A`) is gated at 4.5:1 on the background and surface; on raised and selected fills it is for short labels only. Use `foreground` for reading text on those fills |
+| Syntax colors | New muted palette (teal keywords, sage strings, warm-gray constants). Replace editor theme colors with `--syntax-*` |
+| Grid | The fine square grid now also fades behind code. The wood-grain texture, its swatch and its demo option are removed; use the grid or flat |
+| Density | Default density is now Compact; navigation is a Compact class; compact panel padding is 8 (was 12). `fill.maxEmptySpace` is 36 |
+| Focus ring | The dark outline ring is now 2px wide with a 2px offset (was 3px/3px) |
+| Tabs | The active tab rule moves from the top edge to a bottom underline |
+| Status bar | The status bar fill is now the near-black `surround` role, with a small Carmine indicator beside the workspace state |
+| Light theme | Surfaces are unchanged; accents move to the Carmine family (focus is the brighter `#C8102E` so it stays distinct from the selection marker) |
+| High Contrast theme | Unchanged values; it reuses the new dark syntax colors, which reach 4.5:1 on its background and surface |
+
 ## 1.3.0 → 1.4.0
 
 Additive. No existing role changes value. Regenerate your exports and adopt what you need.

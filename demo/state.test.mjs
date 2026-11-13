@@ -33,20 +33,20 @@ test('pause freezes progress; resume, completion, cancellation and restart are b
 test('legacy preferences retain display choices and gain settings defaults', () => {
   const legacy = {version:1, theme:'dark', density:'compact', effects:true, width:360, collapsed:true};
   assert.deepEqual(readPreferences(JSON.stringify(legacy)), {
-    ...legacy, accent:'github', settingsSection:'appearance', settingsPinned:false
+    ...legacy, accent:'carmine', settingsSection:'appearance', settingsPinned:false
   });
 });
 
 test('accent IDs persist independently of theme and invalid values fall back', () => {
   for (const theme of ['system', 'light', 'dark']) {
-    for (const accent of ['github', 'crimson', 'blue', 'teal']) {
+    for (const accent of ['carmine', 'github', 'crimson', 'blue', 'teal']) {
       const prefs = readPreferences(JSON.stringify({ version:1, theme, accent }));
       assert.equal(prefs.theme, theme);
       assert.equal(prefs.accent, accent);
     }
   }
   for (const accent of [null, [], {}, 1, '#76172A', 'Blue', 'blue; color: red']) {
-    assert.equal(readPreferences(JSON.stringify({ version:1, accent })).accent, 'github');
+    assert.equal(readPreferences(JSON.stringify({ version:1, accent })).accent, 'carmine');
   }
 });
 

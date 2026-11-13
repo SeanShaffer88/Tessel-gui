@@ -1,6 +1,6 @@
 {
   "name": "tesselgui-tokens",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "TesselGUI design tokens: palettes, syntax colors, type, space, motion and component specs as JSON and CSS.",
   "license": "CC-BY-4.0 AND MIT",
   "type": "module",
