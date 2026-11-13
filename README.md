@@ -14,7 +14,7 @@ A dense, tactile interface standard for desktop software of any kind, in dark an
 
 ## Revision 2
 
-The default color scheme now matches GitHub Dark in the dark theme: near-black
+The default dark theme now matches GitHub Dark High Contrast (as shown in VS Code): near-black
 blue-gray surfaces, GitHub blue for selection and focus, and GitHub green
 primary actions that meet 3:1 on every surface, with the light theme using the
 matching GitHub Light accent family. Structure from edges instead of tiny
@@ -102,7 +102,7 @@ Cross-cutting rules: [motion](docs/motion.md), [typography](docs/typography.md),
 | Density is per component | Compact rows (28) and controls (32) for repeated work. Comfortable (36/40) for forms and dialogs. Touch (48). [Density](docs/design-guidelines.md#density) |
 | The current task fits | Windows, dialogs, forms and wizard pages fit without scrollbars. Data containers scroll inside their own bounded viewport. The main window never scrolls |
 | The accent is scarce | Primary action `#1A7F37` (dark) with a white label, 3:1 on every surface. Deep `#15263C` only for large tinted regions with a marker. [Accent roles](docs/materials.md#accent-roles) |
-| Edges carry structure | Three GitHub-dark surface levels differ by 5–10% luminance and mark state. A 1px `edge` separates compartments |
+| Edges carry structure | Three high-contrast dark surface levels mark state. A 1px `edge` (`#7A828E`) separates compartments |
 | The grid has a job | A 24 px grid in empty states and canvases, ten-segment progress, and a 2px active-region rule. [Grid signature](docs/materials.md#grid-signature) |
 | Presets recolor the whole accent | GitHub is the default. Crimson, Blue, Teal and the neutral Graphite change the primary action, selection, focus and deep accent together |
 | Keyboard access starts at the surface | Logical Tab order, visible focus, Commands on Ctrl/⌘+K |

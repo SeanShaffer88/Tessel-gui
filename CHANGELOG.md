@@ -2,6 +2,12 @@
 
 Releases use [Semantic Versioning](https://semver.org/) for the documented token and interaction contracts. Design revisions identify guidance milestones.
 
+## 1.3.0 · 2026-11-13
+
+- Color: the dark theme now matches GitHub Dark High Contrast as shown in VS Code. Background `#010409`, surface `#0A0C10`, raised `#191C20`, selected `#272B33`, text `#F0F3F6` / `#BDC4CC`, edge and border `#7A828E`, selection `#409EFF`, focus `#71B7FF`, warning `#F0B72F`, grid `#0F1318`. Light theme and the Blue, Teal and Graphite presets are unchanged.
+- Contract: the dark surface luminance step is now 5%–300% (`contrast.darkSurfaceRelativeLuminanceStep`), because the high-contrast scheme separates compartments with edges. The Crimson preset's dark selection marker is `#DD294B` so it keeps 3:1 on the selected fill.
+- Wood grain swatch and the measured palette contract in `docs/materials.md` are recomputed. Static mockup images still show revision 2 colors.
+
 ## 1.2.1 · 2026-11-10
 
 - Images: every README image now shows design revision 2. The workspace and category-layout images were recaptured from the live demo; the dark, light and Graphite mockups were recolored to the exact revision 2 token values (the editor mockups' canvas artwork is unchanged); both slideshow GIFs were rebuilt from the new images.
