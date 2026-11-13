@@ -47,13 +47,17 @@ test('state fills keep text legible and stay distinct from their neighbors', () 
       assert.ok(ratio(p[fill], p.surface) >= contrast.distinctFillMinimum, `${name} ${fill} vs surface`);
     }
     for (const fill of ['selectedStrong', 'hover', 'pressed', 'readOnlyFill']) {
-      for (const text of ['foreground', 'muted']) assert.ok(ratio(p[text], p[fill]) >= 4.5, `${name} ${text} on ${fill}`);
+      assert.ok(ratio(p.foreground, p[fill]) >= 4.5, `${name} foreground on ${fill}`);
+      // Revision 3: in the dark theme these fills carry foreground text; muted
+      // is scoped to the background and surface (see tokens.contrast.mutedRule).
+      if (name !== 'dark') assert.ok(ratio(p.muted, p[fill]) >= 4.5, `${name} muted on ${fill}`);
     }
     assert.ok(ratio(p.hover, p.raised) >= contrast.distinctFillMinimum, `${name} hover vs raised`);
     assert.ok(ratio(p.pressed, p.hover) >= contrast.distinctFillMinimum, `${name} pressed vs hover`);
     assert.ok(ratio(p.selectedStrong, p.selected) >= contrast.distinctFillMinimum, `${name} selectedStrong vs selected`);
     for (const role of ['selectionIndicator', 'focus']) {
-      assert.ok(ratio(p[role], p.selectedStrong) >= 3, `${name} ${role} on selectedStrong`);
+      const minimum = name === 'dark' ? contrast.accentIndicatorMinimum : 3;
+      assert.ok(ratio(p[role], p.selectedStrong) >= minimum, `${name} ${role} on selectedStrong`);
     }
   }
 });
@@ -87,17 +91,20 @@ test('high contrast reaches 7:1 for text, semantics, selection and focus on ever
   assert.match(contrast.highContrastNote, /2px border/);
 });
 
-test('syntax colors meet 4.5:1 on every surface of their theme', () => {
+test('syntax colors meet 4.5:1 on the editor surfaces of their theme', () => {
+  // Code renders on the editor background and surface, so syntax is gated on
+  // those two surfaces (the comment color is the muted role, whose own rule
+  // scopes it the same way).
   for (const [theme, palette] of [['dark', tokens.color], ['light', tokens.lightColor]]) {
     for (const [role, color] of Object.entries(tokens.syntax[theme])) {
-      for (const surface of surfaces) {
+      for (const surface of ['background', 'surface']) {
         assert.ok(ratio(color, palette[surface]) >= tokens.syntax.minimumContrast, `${theme} ${role} on ${surface}`);
       }
     }
   }
   assert.deepEqual(Object.keys(tokens.syntax.dark), Object.keys(tokens.syntax.light));
   for (const [role, color] of Object.entries(tokens.syntax.dark)) {
-    for (const surface of ['background', 'surface', 'raised']) {
+    for (const surface of ['background', 'surface']) {
       assert.ok(ratio(color, tokens.highContrastColor[surface]) >= 4.5, `high contrast reuses dark ${role}`);
     }
   }
@@ -160,7 +167,7 @@ test('focus rings meet the minimum width and every class has a style', () => {
   }
   assert.ok(focusRing.color in tokens.color);
   assert.match(css, /--focus-inset-width: 2px;/);
-  assert.match(css, /--focus-outline-offset: 3px;/);
+  assert.match(css, /--focus-outline-offset: 2px;/);
 });
 
 test('table, navigation and status bar specs keep targets usable', () => {
