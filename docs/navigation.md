@@ -8,7 +8,7 @@ Navigation controls reuse the same tokens as everything else. Values live in the
 | --- | --- |
 | Height | 32 px |
 | Width | 96 px minimum, 240 px maximum. Titles truncate in the middle for file names |
-| Active tab | `surface` fill and a 2 px top rule in `selectionIndicator`. Inactive tabs use `background` |
+| Active tab | `surface` fill and a thin 2 px Carmine underline (bottom rule in `selectionIndicator`). Inactive tabs use `background` |
 | Hover | `hover` fill. Pressed uses `pressed` |
 | Close button | 24 × 24 px target, visible on the active and hovered tab, always reachable by keyboard (Ctrl/⌘+W) |
 | Overflow | Scroll the strip and add a list-all-tabs menu at the end. Never shrink tabs below the minimum |

@@ -63,7 +63,7 @@ Here the grid motif is functional, not decorative.
 
 Chrome tint changes color perception. For tools where color judgment matters:
 
-- Offer the **Graphite** preset. It makes the primary action, selection, focus and accent neutral. The default stays GitHub.
+- Offer the **Graphite** preset. It makes the primary action, selection, focus and accent neutral. The default stays Carmine.
 - Draw the viewport on a **neutral surround** (`surround`). It stays chroma-free in dark and light.
 - Keep UI chrome out of the image. Do not tint overlays on the picture.
 - Provide a clean-feed or full-screen viewer mode with a visible exit and a palette command.

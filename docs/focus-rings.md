@@ -23,7 +23,7 @@ Dense rows touch their neighbors, so an outside ring would be clipped or overlap
 ## CSS
 
 ```css
-:root { --focus-outline-width: 3px; --focus-outline-offset: 3px; --focus-inset-width: 2px; --focus-inset-offset: -2px; }
+:root { --focus-outline-width: 2px; --focus-outline-offset: 2px; --focus-inset-width: 2px; --focus-inset-offset: -2px; }
 button:focus-visible, input:focus-visible { outline: var(--focus-outline-width) solid var(--focus); outline-offset: var(--focus-outline-offset); }
 [role=row]:focus-visible, [role=treeitem]:focus-visible, [role=tab]:focus-visible { outline: var(--focus-inset-width) solid var(--focus); outline-offset: var(--focus-inset-offset); }
 ```
