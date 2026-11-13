@@ -14,7 +14,7 @@ A dense, tactile standard for long-session desktop software of any kind: editors
 
 ## Color
 
-Three GitHub-dark surfaces (`background`, `surface`, `raised`) plus `selected`. They differ by 5–10% relative luminance on purpose, so they are not a structural cue. Use `edge` for that.
+Three GitHub-dark surfaces (`background`, `surface`, `raised`) plus `selected`. They step in luminance, and the high-contrast `edge` (`#7A828E`) still carries structure.
 
 | Role | Use | Rule |
 | --- | --- | --- |
