@@ -44,7 +44,6 @@ jobs:
           cp -- demo/categories/index.html demo/categories/style.css _site/demo/categories/
           cp -- demo/contrast/index.html demo/contrast/app.mjs demo/contrast/contrast.mjs demo/contrast/style.css _site/demo/contrast/
           cp -- demo/portableforge/index.html demo/portableforge/app.mjs demo/portableforge/state.mjs demo/portableforge/style.css _site/demo/portableforge/
-          cp -- assets/tessel-wood-grain.svg _site/assets/
           cp -- docs/tokens.json _site/docs/
           mkdir -p _site/dist && cp -- dist/* _site/dist/
       - name: Check the staged PortableForge reference in Chrome
