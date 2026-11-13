@@ -1,45 +1,45 @@
 {
   "formatVersion": 1,
-  "status": "Machine-readable design values with a reusable CSS token sheet in the interaction reference.",
+  "status": "Machine-readable design values for Tessel revision 3 (Carmine): a futuristic, minimal standard with a reusable CSS token sheet in the interaction reference.",
   "color": {
-    "background": "#010409",
-    "surface": "#0A0C10",
-    "raised": "#191C20",
-    "selected": "#272B33",
-    "foreground": "#F0F3F6",
-    "muted": "#BDC4CC",
-    "border": "#7A828E",
-    "accent": "#15263C",
-    "accentForeground": "#F0F6FC",
-    "selectionIndicator": "#409EFF",
-    "focus": "#71B7FF",
-    "action": "#1A7F37",
-    "actionHover": "#238636",
-    "actionPressed": "#116329",
+    "background": "#1B1B1D",
+    "surface": "#1F1F22",
+    "raised": "#232326",
+    "selected": "#2A2A2F",
+    "foreground": "#E6E3E1",
+    "muted": "#89868A",
+    "border": "#76767C",
+    "accent": "#960018",
+    "accentForeground": "#E6E3E1",
+    "selectionIndicator": "#960018",
+    "focus": "#960018",
+    "action": "#960018",
+    "actionHover": "#A81226",
+    "actionPressed": "#7E0014",
     "actionForeground": "#FFFFFF",
-    "progress": "#BDC4CC",
-    "info": "#A5D6FF",
-    "warning": "#F0B72F",
-    "success": "#3FB950",
-    "danger": "#FFA198",
-    "materialRim": "#3D444D",
-    "materialShade": "#010409",
-    "edge": "#7A828E",
-    "grid": "#0F1318",
-    "surround": "#0C0C0C",
-    "selectedStrong": "#40454D",
-    "hover": "#20242B",
-    "pressed": "#2E333B",
-    "infoFill": "#0C2D6B",
-    "warningFill": "#3A2A00",
-    "successFill": "#0A3318",
-    "dangerFill": "#4C1A1A",
-    "disabledForeground": "#7A828E",
-    "disabledFill": "#0A0C10",
-    "readOnlyFill": "#11151B",
-    "textSelection": "#1F4E8F",
-    "findMatch": "#5C4A00",
-    "findMatchActive": "#8A5B00"
+    "progress": "#B8AAA0",
+    "info": "#72AAA5",
+    "warning": "#C9A86A",
+    "success": "#A3B58A",
+    "danger": "#E8939F",
+    "materialRim": "#3D3D42",
+    "materialShade": "#111113",
+    "edge": "#43434A",
+    "grid": "#28282B",
+    "surround": "#191919",
+    "selectedStrong": "#33333A",
+    "hover": "#28282D",
+    "pressed": "#2E2E34",
+    "infoFill": "#1C2B29",
+    "warningFill": "#2E2617",
+    "successFill": "#222B1D",
+    "dangerFill": "#3B1B22",
+    "disabledForeground": "#89868A",
+    "disabledFill": "#1B1B1D",
+    "readOnlyFill": "#232326",
+    "textSelection": "#3F3F46",
+    "findMatch": "#4A3E24",
+    "findMatchActive": "#63552F"
   },
   "space": {
     "unit": "CSS-pixel-equivalent; adapt to native units and user scaling",
@@ -53,7 +53,7 @@
     ],
     "compartmentGutter": 8,
     "controlGap": 8,
-    "panelPadding": 12,
+    "panelPadding": 8,
     "controlGapMinimum": 6,
     "relatedGroupGap": [
       12,
@@ -70,8 +70,9 @@
       "sans-serif"
     ],
     "mono": [
-      "Cascadia Mono",
       "Consolas",
+      "Cascadia Mono",
+      "Courier New",
       "monospace"
     ],
     "size": {
@@ -171,7 +172,7 @@
     "distinctFillMinimum": 1.05,
     "selectedFillMinimum": 1.1,
     "focusSelectionMinimum": 1.3,
-    "distinctness": "Roles that must read as different states never share a value: primary action vs raised, focus vs selection indicator, selected vs surface. Ratios are WCAG contrast between the two fills. The primary action fill also reaches 3:1 against every dark and light surface so it needs no extra boundary.",
+    "distinctness": "Roles that must read as different states never share a value, except by design in revision 3: in the dark theme the selection indicator and the focus outline are the same Carmine and are told apart by geometry (a bar or underline on the item, an outline around the control). Primary action vs raised, selected vs surface keep their ratio floors. The primary action fill is Carmine with a border rim and an off-white label; in the light theme it also reaches 3:1 against every surface.",
     "actionSurfaceMinimum": 3,
     "edgeMinimum": 1.4,
     "gridRange": [
@@ -181,8 +182,8 @@
     "surfaceLuminanceStep": {
       "unit": "Relative luminance change from each surface to the next, as a ratio minus 1",
       "dark": [
-        1.5,
-        3
+        0.15,
+        0.4
       ],
       "highContrast": [
         1.5,
@@ -193,9 +194,12 @@
     "textSelectionFillMinimum": 1.3,
     "findFillMinimum": 1.1,
     "highContrastTextMinimum": 7,
-    "highContrastNote": "High Contrast text, semantic colors, selection and focus reach 7:1 on every surface. The primary action cannot reach both 7:1 for its label and 3:1 for its fill on black, so it carries a 2px border in `border` instead."
+    "highContrastNote": "High Contrast text, semantic colors, selection and focus reach 7:1 on every surface. The primary action cannot reach both 7:1 for its label and 3:1 for its fill on black, so it carries a 2px border in `border` instead.",
+    "accentIndicatorMinimum": 1.35,
+    "accentIndicatorRule": "Revision 3 Carmine (#960018) is a deep, restrained accent: on the dark surfaces it measures 1.89:1 on the background, 1.81:1 on the surface, 1.72:1 on raised, 1.57:1 on the selected fill and 1.38:1 on the strong selected fill. A Carmine indicator is therefore never the only cue: the active tab also carries its label and position, the selected row also changes fill, the focused control also shows its native state, and the text cursor is off-white with only a Carmine cap. The primary action is a Carmine fill with an off-white label (7.1:1) and a 1px rim in the border role, so it never relies on fill-to-surface contrast alone.",
+    "mutedRule": "Muted (#89868A) is secondary text and the code-comment color. It reaches 4.78:1 on the editor background and 4.58:1 on the surface; on raised and selected fills it measures 4.37:1 and 3.98:1, so those surfaces carry short secondary labels only and anything the user must read at length uses the foreground role. In the light theme muted reaches at least 4.5:1 on every surface."
   },
-  "designRevision": 2,
+  "designRevision": 3,
   "lightColor": {
     "background": "#EDEDF0",
     "surface": "#FFFFFF",
@@ -204,19 +208,19 @@
     "foreground": "#202023",
     "muted": "#50505B",
     "border": "#676772",
-    "accent": "#0550AE",
-    "accentForeground": "#F1F1F3",
-    "selectionIndicator": "#0969DA",
-    "focus": "#0550AE",
-    "action": "#1A7F37",
-    "actionHover": "#238636",
-    "actionPressed": "#116329",
+    "accent": "#960018",
+    "accentForeground": "#FFFFFF",
+    "selectionIndicator": "#960018",
+    "focus": "#C8102E",
+    "action": "#960018",
+    "actionHover": "#7E0014",
+    "actionPressed": "#660011",
     "actionForeground": "#FFFFFF",
     "progress": "#50505B",
-    "info": "#174E85",
-    "warning": "#735100",
-    "success": "#236340",
-    "danger": "#9D2B1F",
+    "info": "#1F4E4A",
+    "warning": "#6B4A00",
+    "success": "#3C5A2E",
+    "danger": "#960018",
     "materialRim": "#FFFFFF",
     "materialShade": "#C2C2CA",
     "edge": "#B8B8BD",
@@ -225,24 +229,24 @@
     "selectedStrong": "#CACAD3",
     "hover": "#D5D5DD",
     "pressed": "#C9C9D3",
-    "infoFill": "#DDF4FF",
-    "warningFill": "#FFF8C5",
-    "successFill": "#DAFBE1",
-    "dangerFill": "#FFEBE9",
+    "infoFill": "#CDE3E0",
+    "warningFill": "#F0E3BC",
+    "successFill": "#DCE8D2",
+    "dangerFill": "#F3D9DD",
     "disabledForeground": "#7E7E8A",
     "disabledFill": "#F2F2F5",
     "readOnlyFill": "#F4F4F7",
-    "textSelection": "#B6D6FB",
+    "textSelection": "#E3C8CC",
     "findMatch": "#FFE97A",
     "findMatchActive": "#FFD33D"
   },
   "density": {
-    "default": "comfortable",
+    "default": "compact",
     "perClass": {
       "dataRows": "compact",
       "toolbars": "compact",
       "trees": "compact",
-      "navigation": "comfortable",
+      "navigation": "compact",
       "forms": "comfortable",
       "dialogs": "comfortable",
       "touch": "touch",
@@ -251,7 +255,7 @@
       "meters": "compact"
     },
     "compact": {
-      "panelPadding": 12,
+      "panelPadding": 8,
       "controlMinHeight": 32,
       "rowMinHeight": 28
     },
@@ -267,7 +271,7 @@
     },
     "narrowControlMinHeight": 44,
     "touchControlMinWidth": 44,
-    "rule": "Density is chosen per component class, not per application. Repeated-use rows, toolbars and trees default to Compact. Forms, dialogs and primary navigation default to Comfortable. Touch applies when the input is touch."
+    "rule": "Density is chosen per component class, not per application. Revision 3 is compact-first: rows, toolbars, trees, panel headers and primary navigation default to Compact with minimal padding. Forms and dialogs default to Comfortable. Touch applies when the input is touch."
   },
   "compartments": {
     "inspectorWidth": 300,
@@ -279,29 +283,28 @@
   },
   "effects": {
     "default": false,
-    "rule": "Optional neutral decorative edge. The signature grid motif is separate and always on where defined. The deep accent fills large tinted regions with a light label. Primary actions use the action tokens. Selection and focus use their own contrast-tested colors."
+    "rule": "Optional neutral decorative edge. The signature grid motif is separate and always on where defined. The deep accent is Carmine (#960018): it fills the primary action and large tinted regions with a light label. Selection and focus use Carmine as a thin edge, bar or outline, always paired with a fill change, a label or a native state."
   },
   "material": {
-    "scope": "Opaque surfaces with shallow material relief. Dark workspace backgrounds may carry a faint static soft wood grain. Controls and state fills stay solid.",
+    "scope": "Opaque surfaces with shallow material relief. The dark background carries the fine square grid texture in empty areas, fading behind code and dense content. Controls and state fills stay solid.",
     "dark": {
       "structuralShadow": "0 2px 3px #0003"
     },
     "light": {
       "structuralShadow": "0 2px 3px #00000014"
     },
-    "primary": "Solid action fill with a white label, distinct hover and pressed states, and a 3:1 boundary against every surface.",
+    "primary": "Solid Carmine action fill with a white label, distinct hover and pressed states, and a 1px rim in the border role so the fill never relies on surface contrast alone.",
     "disabled": "Solid surface, muted label and dashed border.",
     "field": "Solid surface and shallow inset shadow with native control appearance.",
-    "focus": "Independent 3px outline and 3px offset.",
+    "focus": "Thin Carmine outline in the focus role: 2px with a 2px offset in the dark theme.",
     "forcedColors": "Use native system colors and visible outlines.",
     "texture": {
       "default": "grid",
       "options": [
         "grid",
-        "flat",
-        "wood"
+        "flat"
       ],
-      "rule": "Grid appears in empty states, canvases and determinate progress. Dense reading surfaces, fields and controls stay flat. Soft wood grain is an optional workspace background for dark themes."
+      "rule": "The fine square grid (grid role, 24px cell, 1px lines) is visible in empty areas and fades behind code and dense content. Fields and controls stay flat. The wood-grain texture from revision 2 is retired."
     }
   },
   "settings": {
@@ -338,10 +341,47 @@
     "surface-4": "selected"
   },
   "appearanceAccents": {
-    "default": "github",
+    "default": "carmine",
     "presets": {
+      "carmine": {
+        "label": "Carmine"
+      },
       "github": {
-        "label": "GitHub"
+        "label": "GitHub",
+        "dark": {
+          "accent": "#15263C",
+          "action": "#1A7F37",
+          "actionHover": "#238636",
+          "actionPressed": "#116329",
+          "selectionIndicator": "#409EFF",
+          "focus": "#71B7FF"
+        },
+        "light": {
+          "accent": "#0550AE",
+          "action": "#1A7F37",
+          "actionHover": "#238636",
+          "actionPressed": "#116329",
+          "selectionIndicator": "#0969DA",
+          "focus": "#0550AE"
+        },
+        "oklch": {
+          "dark": {
+            "accent": "oklch(0.26559937 0.04732972 255.4106)",
+            "action": "oklch(0.52441141 0.14007706 148.0394)",
+            "actionHover": "oklch(0.54603681 0.14742919 146.258)",
+            "actionPressed": "oklch(0.43905781 0.11792521 148.0652)",
+            "selectionIndicator": "oklch(0.68977473 0.16785591 252.1779)",
+            "focus": "oklch(0.76253203 0.12606958 250.4196)"
+          },
+          "light": {
+            "accent": "oklch(0.45094541 0.16413839 258.1788)",
+            "action": "oklch(0.52441141 0.14007706 148.0394)",
+            "actionHover": "oklch(0.54603681 0.14742919 146.258)",
+            "actionPressed": "oklch(0.43905781 0.11792521 148.0652)",
+            "selectionIndicator": "oklch(0.53992423 0.19058429 257.4815)",
+            "focus": "oklch(0.45094541 0.16413839 258.1788)"
+          }
+        }
       },
       "crimson": {
         "label": "Crimson",
@@ -495,84 +535,84 @@
   },
   "colorOklch": {
     "dark": {
-      "background": "oklch(0.10388568 0.01943001 248.3450)",
-      "surface": "oklch(0.15401813 0.00920094 264.2798)",
-      "raised": "oklch(0.22502574 0.00901753 255.6053)",
-      "selected": "oklch(0.28847744 0.01572195 264.2906)",
-      "foreground": "oklch(0.96272612 0.00514744 247.8774)",
-      "muted": "oklch(0.81726323 0.01363829 251.5822)",
-      "border": "oklch(0.60400249 0.02054663 258.3682)",
-      "accent": "oklch(0.26559937 0.04732972 255.4106)",
-      "accentForeground": "oklch(0.97034229 0.0102751 247.9321)",
-      "selectionIndicator": "oklch(0.68977473 0.16785591 252.1779)",
-      "focus": "oklch(0.76253203 0.12606958 250.4196)",
-      "action": "oklch(0.52441141 0.14007706 148.0394)",
-      "actionHover": "oklch(0.54603681 0.14742919 146.258)",
-      "actionPressed": "oklch(0.43905781 0.11792521 148.0652)",
-      "actionForeground": "oklch(0.99999999 0.00000004 89.8756)",
-      "progress": "oklch(0.81726323 0.01363829 251.5822)",
-      "info": "oklch(0.85599349 0.07682887 244.0932)",
-      "warning": "oklch(0.81052588 0.15413839 83.7602)",
-      "success": "oklch(0.69508067 0.18092832 145.6213)",
-      "danger": "oklch(0.80135402 0.11342984 25.812)",
-      "materialRim": "oklch(0.38371271 0.01792968 254.7440)",
-      "materialShade": "oklch(0.10388568 0.01943001 248.3450)",
-      "edge": "oklch(0.60400249 0.02054663 258.3682)",
-      "grid": "oklch(0.18482685 0.01204825 254.1306)",
-      "surround": "oklch(0.15433999 0 0)",
-      "selectedStrong": "oklch(0.38882336 0.01510027 259.8147)",
-      "hover": "oklch(0.25930213 0.01441609 261.6732)",
-      "pressed": "oklch(0.31952601 0.01587985 259.8005)",
-      "infoFill": "oklch(0.31627604 0.11499493 261.5310)",
-      "warningFill": "oklch(0.29561171 0.06050196 86.1778)",
-      "successFill": "oklch(0.28503304 0.06629631 150.8560)",
-      "dangerFill": "oklch(0.29555554 0.07619590 22.9362)",
-      "disabledForeground": "oklch(0.60400249 0.02054663 258.3682)",
-      "disabledFill": "oklch(0.15401813 0.00920094 264.2798)",
-      "readOnlyFill": "oklch(0.19433060 0.01367997 258.3643)",
-      "textSelection": "oklch(0.42824570 0.11903688 257.3856)",
-      "findMatch": "oklch(0.41571805 0.08510331 92.8275)",
-      "findMatchActive": "oklch(0.50982221 0.10793988 74.2191)"
+      "background": "oklch(0.22296359 0.00384209 286.084)",
+      "surface": "oklch(0.24053499 0.00566232 285.9664)",
+      "raised": "oklch(0.25737093 0.0055652 286.0023)",
+      "selected": "oklch(0.28702691 0.00904287 285.8163)",
+      "foreground": "oklch(0.91760389 0.00424734 56.3707)",
+      "muted": "oklch(0.62390881 0.00687431 317.7451)",
+      "border": "oklch(0.56781479 0.00912186 286.1057)",
+      "accent": "oklch(0.42434381 0.17167681 24.1162)",
+      "accentForeground": "oklch(0.91760389 0.00424734 56.3707)",
+      "selectionIndicator": "oklch(0.42434381 0.17167681 24.1162)",
+      "focus": "oklch(0.42434381 0.17167681 24.1162)",
+      "action": "oklch(0.42434381 0.17167681 24.1162)",
+      "actionHover": "oklch(0.46865962 0.17944721 22.6312)",
+      "actionPressed": "oklch(0.37407274 0.15115217 23.5475)",
+      "actionForeground": "oklch(0.99999999 4e-08 89.8756)",
+      "progress": "oklch(0.74704708 0.02155819 57.961)",
+      "info": "oklch(0.69776906 0.05918571 188.8397)",
+      "warning": "oklch(0.74722277 0.08902202 82.3947)",
+      "success": "oklch(0.74785769 0.06279244 126.3328)",
+      "danger": "oklch(0.75293788 0.10346696 10.6637)",
+      "materialRim": "oklch(0.36189335 0.00852105 285.9663)",
+      "materialShade": "oklch(0.17852907 0.00406634 285.9807)",
+      "edge": "oklch(0.38548736 0.01175804 285.8353)",
+      "grid": "oklch(0.2780383 0.0054565 286.0395)",
+      "surround": "oklch(0.21342251 1e-08 89.8756)",
+      "selectedStrong": "oklch(0.32385314 0.01229694 285.6931)",
+      "hover": "oklch(0.27887635 0.00911007 285.7942)",
+      "pressed": "oklch(0.30357735 0.0107073 285.7447)",
+      "infoFill": "oklch(0.27484891 0.0205559 185.7804)",
+      "warningFill": "oklch(0.27316658 0.02817554 82.6742)",
+      "successFill": "oklch(0.27575882 0.02801114 134.6106)",
+      "dangerFill": "oklch(0.2699579 0.05090858 7.1417)",
+      "disabledForeground": "oklch(0.62390881 0.00687431 317.7451)",
+      "disabledFill": "oklch(0.22296359 0.00384209 286.084)",
+      "readOnlyFill": "oklch(0.25737093 0.0055652 286.0023)",
+      "textSelection": "oklch(0.3703234 0.01187991 285.8054)",
+      "findMatch": "oklch(0.36954133 0.04349961 85.5765)",
+      "findMatchActive": "oklch(0.45405748 0.05796439 89.7965)"
     },
     "light": {
       "background": "oklch(0.94695735 0.00400202 286.3231)",
-      "surface": "oklch(0.99999999 4e-8 89.8756)",
+      "surface": "oklch(0.99999999 4e-08 89.8756)",
       "raised": "oklch(0.92030832 0.00672312 286.2669)",
       "selected": "oklch(0.89958388 0.00947362 286.2077)",
       "foreground": "oklch(0.24477082 0.00563709 285.9759)",
       "muted": "oklch(0.43533305 0.01795528 285.6302)",
       "border": "oklch(0.51761986 0.01717247 285.7846)",
-      "accent": "oklch(0.45094541 0.16413839 258.1788)",
-      "accentForeground": "oklch(0.95871168 0.00265877 286.3496)",
-      "selectionIndicator": "oklch(0.53992423 0.19058429 257.4815)",
-      "focus": "oklch(0.45094541 0.16413839 258.1788)",
-      "action": "oklch(0.52441141 0.14007706 148.0394)",
-      "actionHover": "oklch(0.54603681 0.14742919 146.258)",
-      "actionPressed": "oklch(0.43905781 0.11792521 148.0652)",
-      "actionForeground": "oklch(0.99999999 0.00000004 89.8756)",
+      "accent": "oklch(0.42434381 0.17167681 24.1162)",
+      "accentForeground": "oklch(0.99999999 4e-08 89.8756)",
+      "selectionIndicator": "oklch(0.42434381 0.17167681 24.1162)",
+      "focus": "oklch(0.53036685 0.20739612 22.3174)",
+      "action": "oklch(0.42434381 0.17167681 24.1162)",
+      "actionHover": "oklch(0.37407274 0.15115217 23.5475)",
+      "actionPressed": "oklch(0.32219585 0.12984674 22.2064)",
+      "actionForeground": "oklch(0.99999999 4e-08 89.8756)",
       "progress": "oklch(0.43533305 0.01795528 285.6302)",
-      "info": "oklch(0.41881539 0.1075466 252.101)",
-      "warning": "oklch(0.45961794 0.0950413 80.5814)",
-      "success": "oklch(0.44850915 0.08732837 156.1346)",
-      "danger": "oklch(0.46583353 0.15205847 29.8657)",
-      "materialRim": "oklch(0.99999999 4e-8 89.8756)",
+      "info": "oklch(0.3902076 0.05150682 187.7467)",
+      "warning": "oklch(0.43426232 0.09012869 79.3151)",
+      "success": "oklch(0.43213279 0.07715907 136.4024)",
+      "danger": "oklch(0.42434381 0.17167681 24.1162)",
+      "materialRim": "oklch(0.99999999 4e-08 89.8756)",
       "materialShade": "oklch(0.81646189 0.01110062 286.1513)",
-      "edge": "oklch(0.78410521 0.00700060 286.2372)",
+      "edge": "oklch(0.78410521 0.0070006 286.2372)",
       "grid": "oklch(0.96199996 0.00398619 286.3246)",
-      "surround": "oklch(0.87609632 0.00000003 89.8756)",
+      "surround": "oklch(0.87609632 3e-08 89.8756)",
       "selectedStrong": "oklch(0.84169691 0.01239673 286.1304)",
-      "hover": "oklch(0.87537340 0.01090607 286.1723)",
-      "pressed": "oklch(0.83889814 0.01379090 286.0987)",
-      "infoFill": "oklch(0.95363012 0.02838912 228.0442)",
-      "warningFill": "oklch(0.97214633 0.06584570 101.0111)",
-      "successFill": "oklch(0.95744490 0.04868086 151.6343)",
-      "dangerFill": "oklch(0.95547614 0.02201662 24.4377)",
-      "disabledForeground": "oklch(0.59711030 0.01806708 285.8399)",
+      "hover": "oklch(0.8753734 0.01090607 286.1723)",
+      "pressed": "oklch(0.83889814 0.0137909 286.0987)",
+      "infoFill": "oklch(0.89868951 0.02371458 186.8764)",
+      "warningFill": "oklch(0.9164016 0.0529761 91.7805)",
+      "successFill": "oklch(0.91598372 0.03203205 130.5992)",
+      "dangerFill": "oklch(0.9077575 0.02925315 7.14)",
+      "disabledForeground": "oklch(0.5971103 0.01806708 285.8399)",
       "disabledFill": "oklch(0.96199996 0.00398619 286.3246)",
       "readOnlyFill": "oklch(0.96800052 0.00397997 286.3252)",
-      "textSelection": "oklch(0.86510180 0.06193292 252.2482)",
-      "findMatch": "oklch(0.92984296 0.13359650 98.3318)",
-      "findMatchActive": "oklch(0.88074680 0.16330015 91.5922)"
+      "textSelection": "oklch(0.85654958 0.03085332 7.6197)",
+      "findMatch": "oklch(0.92984296 0.1335965 98.3318)",
+      "findMatchActive": "oklch(0.8807468 0.16330015 91.5922)"
     }
   },
   "signature": {
@@ -586,14 +626,14 @@
       "cell": 24,
       "line": 1,
       "color": "grid",
-      "scope": "Empty states and canvases. Never behind text-dense content."
+      "scope": "Empty areas and canvases, and behind code at reduced visibility: the grid fades behind dense content instead of disappearing. Never behind body text the user must read at length."
     },
     "progress": {
       "segments": 10,
       "scope": "Determinate progress shows 10 equal segments. Indeterminate progress shows a moving segment and respects reduced motion."
     },
     "accentBudget": {
-      "rule": "At most one accent element per region (primary action, selection, or active rule). Syntax or data series do not use the brand accent.",
+      "rule": "At most one Carmine element per region (primary action, selection edge, or active rule). Syntax and data series do not use Carmine.",
       "coverageTarget": "Informational, not a gate."
     }
   },
@@ -612,7 +652,7 @@
   "workspace": {
     "modes": {
       "maximum": 9,
-      "shortcut": "Ctrl/⌘+1 to 9",
+      "shortcut": "Ctrl/\u2318+1 to 9",
       "indicator": "Structural: selection marker plus a label. Never color alone.",
       "scope": "Each mode saves its own layout. Switching never loses work."
     },
@@ -644,8 +684,8 @@
   },
   "fill": {
     "rule": "Every region has a job and grows to do it. Surplus width goes to the dominant region; surplus height goes to the region that benefits most. Fill with function, never decoration. Empty states are useful states.",
-    "maxEmptySpace": 40,
-    "maxEmptySpaceNote": "CSS px of unused height allowed inside a region: one compact row (28) plus compact panel padding (12).",
+    "maxEmptySpace": 36,
+    "maxEmptySpaceNote": "CSS px of unused height allowed inside a region: one compact row (28) plus compact panel padding (8).",
     "emptyState": [
       "primaryAction",
       "recentItems",
@@ -670,7 +710,7 @@
     "selected": {
       "fill": "selected",
       "bar": "selectionIndicator",
-      "barWidth": 3
+      "barWidth": 2
     },
     "notDataLists": [
       "menus",
@@ -888,26 +928,26 @@
     "findMatchActive": "#8A5B00"
   },
   "syntax": {
-    "scope": "Code and log text. Never use for chrome, status or data series. High Contrast uses the dark set.",
+    "scope": "Code and log text on the editor background and surface. Never use for chrome, status or data series. High Contrast uses the dark set.",
     "dark": {
-      "keyword": "#FF9492",
-      "string": "#ADDCFF",
-      "function": "#DBB7FF",
-      "constant": "#91CBFF",
-      "comment": "#BDC4CC",
-      "variable": "#FFB757",
-      "tag": "#72F088",
-      "typeName": "#F0B72F"
+      "keyword": "#72AAA5",
+      "string": "#A3B58A",
+      "function": "#CFC4B8",
+      "constant": "#B8AAA0",
+      "comment": "#89868A",
+      "variable": "#A8C0B8",
+      "tag": "#8FAE94",
+      "typeName": "#B5C4A8"
     },
     "light": {
-      "keyword": "#B71C28",
-      "string": "#0A3069",
-      "function": "#6639BA",
-      "constant": "#0550AE",
-      "comment": "#57606A",
-      "variable": "#953800",
-      "tag": "#116329",
-      "typeName": "#7D4E00"
+      "keyword": "#2F6F6A",
+      "string": "#4C6B3C",
+      "function": "#6E6259",
+      "constant": "#8A5A13",
+      "comment": "#6A686E",
+      "variable": "#7A5230",
+      "tag": "#3F7057",
+      "typeName": "#556B47"
     },
     "minimumContrast": 4.5
   },
@@ -966,13 +1006,13 @@
     "minimumLabelContrast": 4.5
   },
   "focusRing": {
-    "scope": "Every focusable element shows one ring in the focus role. Rows and tabs use the inset ring so it is never clipped by a neighbor.",
+    "scope": "Every focusable element shows one thin outline in the focus role (Carmine in the dark theme). Rows and tabs use the inset ring so it is never clipped by a neighbor.",
     "minimumWidth": 2,
     "color": "focus",
     "styles": {
       "outline": {
-        "width": 3,
-        "offset": 3,
+        "width": 2,
+        "offset": 2,
         "placement": "outside"
       },
       "inset": {
@@ -1038,7 +1078,7 @@
       "maxWidth": 240,
       "closeTarget": 24,
       "activeRule": {
-        "edge": "top",
+        "edge": "bottom",
         "width": 2,
         "color": "selectionIndicator"
       },
@@ -1087,10 +1127,14 @@
       "units-or-encoding",
       "notifications"
     ],
-    "fill": "background",
+    "fill": "surround",
     "edge": "top",
     "separator": "edge",
-    "rule": "Left to right in the listed order. State that changes with the document sits left; app-wide state sits right. Every segment with an action is a button with a visible focus ring and a tooltip. Text uses the dense size."
+    "rule": "Near-black bar (the surround role). Left to right in the listed order. State that changes with the document sits left; app-wide state sits right. Every segment with an action is a button with a visible focus ring and a tooltip. Text uses the dense size in the muted role, with a small Carmine indicator beside the workspace state.",
+    "indicator": {
+      "role": "selectionIndicator",
+      "form": "Small Carmine square beside the workspace-state segment, always paired with its text label"
+    }
   },
   "states": {
     "loading": {
@@ -1107,7 +1151,7 @@
         "secondaryAction",
         "shortcutHint"
       ],
-      "grid": "24px signature grid behind the block only",
+      "grid": "The fine square grid shows in the empty area and fades behind the block",
       "rule": "Name what is missing and the one action that fixes it."
     },
     "error": {
@@ -1126,7 +1170,7 @@
       "rule": "Keep read-only content usable. Disable only the actions that need the network and say which."
     }
   },
-  "version": "1.4.0",
+  "version": "2.0.0",
   "commandPalette": {
     "scope": "Extends shortcuts.palette. The palette lists everything the product can do and teaches its shortcuts.",
     "registry": {
