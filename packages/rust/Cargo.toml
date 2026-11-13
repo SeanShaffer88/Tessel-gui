@@ -1,6 +1,6 @@
 [package]
 name = "tesselgui-tokens"
-version = "1.4.0"
+version = "2.0.0"
 edition = "2021"
 description = "TesselGUI design tokens: palettes, syntax colors, density, type and motion as dependency-free constants."
 license = "CC-BY-4.0 AND MIT"
