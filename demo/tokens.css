@@ -32,6 +32,16 @@
   --surface-2: var(--surface);
   --surface-3: var(--raised);
   --surface-4: var(--selected);
+  --focus-outline-width: 3px;
+  --focus-outline-offset: 3px;
+  --focus-inset-width: 2px;
+  --focus-inset-offset: -2px;
+  --selection-indicator-tint-1: color-mix(in oklab, var(--selection-indicator) 8%, var(--bg));
+  --selection-indicator-tint-2: color-mix(in oklab, var(--selection-indicator) 16%, var(--bg));
+  --selection-indicator-tint-3: color-mix(in oklab, var(--selection-indicator) 24%, var(--bg));
+  --action-tint-1: color-mix(in oklab, var(--action) 8%, var(--bg));
+  --action-tint-2: color-mix(in oklab, var(--action) 16%, var(--bg));
+  --action-tint-3: color-mix(in oklab, var(--action) 24%, var(--bg));
   --bg: #010409;
   --surface: #0A0C10;
   --raised: #191C20;
@@ -57,8 +67,33 @@
   --edge: #7A828E;
   --grid: #0F1318;
   --surround: #0C0C0C;
+  --selected-strong: #40454D;
+  --hover: #20242B;
+  --pressed: #2E333B;
+  --info-fill: #0C2D6B;
+  --warning-fill: #3A2A00;
+  --success-fill: #0A3318;
+  --danger-fill: #4C1A1A;
+  --disabled-foreground: #7A828E;
+  --disabled-fill: #0A0C10;
+  --read-only-fill: #11151B;
+  --text-selection: #1F4E8F;
+  --find-match: #5C4A00;
+  --find-match-active: #8A5B00;
   color-scheme: dark;
   --material-shadow: 0 2px 3px #0003;
+  --syntax-keyword: #FF9492;
+  --syntax-string: #ADDCFF;
+  --syntax-function: #DBB7FF;
+  --syntax-constant: #91CBFF;
+  --syntax-comment: #BDC4CC;
+  --syntax-variable: #FFB757;
+  --syntax-tag: #72F088;
+  --syntax-type-name: #F0B72F;
+  --elevation-popup: 0 4px 8px #0006;
+  --elevation-tooltip: 0 2px 6px #0006;
+  --elevation-dialog: 0 8px 24px #000A;
+  --scrim: #000000B3;
 }
 :root[data-theme=light] {
   --bg: #EDEDF0;
@@ -86,8 +121,33 @@
   --edge: #B8B8BD;
   --grid: #F2F2F5;
   --surround: #D6D6D6;
+  --selected-strong: #CACAD3;
+  --hover: #D5D5DD;
+  --pressed: #C9C9D3;
+  --info-fill: #DDF4FF;
+  --warning-fill: #FFF8C5;
+  --success-fill: #DAFBE1;
+  --danger-fill: #FFEBE9;
+  --disabled-foreground: #7E7E8A;
+  --disabled-fill: #F2F2F5;
+  --read-only-fill: #F4F4F7;
+  --text-selection: #B6D6FB;
+  --find-match: #FFE97A;
+  --find-match-active: #FFD33D;
   color-scheme: light;
   --material-shadow: 0 2px 3px #00000014;
+  --syntax-keyword: #B71C28;
+  --syntax-string: #0A3069;
+  --syntax-function: #6639BA;
+  --syntax-constant: #0550AE;
+  --syntax-comment: #57606A;
+  --syntax-variable: #953800;
+  --syntax-tag: #116329;
+  --syntax-type-name: #7D4E00;
+  --elevation-popup: 0 4px 8px #0000001F;
+  --elevation-tooltip: 0 2px 6px #0000001F;
+  --elevation-dialog: 0 8px 24px #00000033;
+  --scrim: #00000066;
 }
 @media (prefers-color-scheme: light) {
   :root[data-theme=system] {
@@ -116,8 +176,33 @@
     --edge: #B8B8BD;
     --grid: #F2F2F5;
     --surround: #D6D6D6;
+    --selected-strong: #CACAD3;
+    --hover: #D5D5DD;
+    --pressed: #C9C9D3;
+    --info-fill: #DDF4FF;
+    --warning-fill: #FFF8C5;
+    --success-fill: #DAFBE1;
+    --danger-fill: #FFEBE9;
+    --disabled-foreground: #7E7E8A;
+    --disabled-fill: #F2F2F5;
+    --read-only-fill: #F4F4F7;
+    --text-selection: #B6D6FB;
+    --find-match: #FFE97A;
+    --find-match-active: #FFD33D;
     color-scheme: light;
     --material-shadow: 0 2px 3px #00000014;
+    --syntax-keyword: #B71C28;
+    --syntax-string: #0A3069;
+    --syntax-function: #6639BA;
+    --syntax-constant: #0550AE;
+    --syntax-comment: #57606A;
+    --syntax-variable: #953800;
+    --syntax-tag: #116329;
+    --syntax-type-name: #7D4E00;
+    --elevation-popup: 0 4px 8px #0000001F;
+    --elevation-tooltip: 0 2px 6px #0000001F;
+    --elevation-dialog: 0 8px 24px #00000033;
+    --scrim: #00000066;
   }
 }
 :root[data-accent=crimson] { --accent: #76172A; --action: #D02946; --action-hover: #D6304B; --action-pressed: #CA2141; --selection-indicator: #DD294B; --focus: #FF4D73; }
@@ -168,6 +253,19 @@
     --edge: oklch(0.60400249 0.02054663 258.3682);
     --grid: oklch(0.18482685 0.01204825 254.1306);
     --surround: oklch(0.15433999 0 0);
+    --selected-strong: oklch(0.38882336 0.01510027 259.8147);
+    --hover: oklch(0.25930213 0.01441609 261.6732);
+    --pressed: oklch(0.31952601 0.01587985 259.8005);
+    --info-fill: oklch(0.31627604 0.11499493 261.5310);
+    --warning-fill: oklch(0.29561171 0.06050196 86.1778);
+    --success-fill: oklch(0.28503304 0.06629631 150.8560);
+    --danger-fill: oklch(0.29555554 0.07619590 22.9362);
+    --disabled-foreground: oklch(0.60400249 0.02054663 258.3682);
+    --disabled-fill: oklch(0.15401813 0.00920094 264.2798);
+    --read-only-fill: oklch(0.19433060 0.01367997 258.3643);
+    --text-selection: oklch(0.42824570 0.11903688 257.3856);
+    --find-match: oklch(0.41571805 0.08510331 92.8275);
+    --find-match-active: oklch(0.50982221 0.10793988 74.2191);
   }
   :root[data-theme=light] {
     --bg: oklch(0.94695735 0.00400202 286.3231);
@@ -195,6 +293,19 @@
     --edge: oklch(0.78410521 0.00700060 286.2372);
     --grid: oklch(0.96199996 0.00398619 286.3246);
     --surround: oklch(0.87609632 0.00000003 89.8756);
+    --selected-strong: oklch(0.84169691 0.01239673 286.1304);
+    --hover: oklch(0.87537340 0.01090607 286.1723);
+    --pressed: oklch(0.83889814 0.01379090 286.0987);
+    --info-fill: oklch(0.95363012 0.02838912 228.0442);
+    --warning-fill: oklch(0.97214633 0.06584570 101.0111);
+    --success-fill: oklch(0.95744490 0.04868086 151.6343);
+    --danger-fill: oklch(0.95547614 0.02201662 24.4377);
+    --disabled-foreground: oklch(0.59711030 0.01806708 285.8399);
+    --disabled-fill: oklch(0.96199996 0.00398619 286.3246);
+    --read-only-fill: oklch(0.96800052 0.00397997 286.3252);
+    --text-selection: oklch(0.86510180 0.06193292 252.2482);
+    --find-match: oklch(0.92984296 0.13359650 98.3318);
+    --find-match-active: oklch(0.88074680 0.16330015 91.5922);
   }
   @media (prefers-color-scheme: light) {
     :root[data-theme=system] {
@@ -223,6 +334,19 @@
       --edge: oklch(0.78410521 0.00700060 286.2372);
       --grid: oklch(0.96199996 0.00398619 286.3246);
       --surround: oklch(0.87609632 0.00000003 89.8756);
+      --selected-strong: oklch(0.84169691 0.01239673 286.1304);
+      --hover: oklch(0.87537340 0.01090607 286.1723);
+      --pressed: oklch(0.83889814 0.01379090 286.0987);
+      --info-fill: oklch(0.95363012 0.02838912 228.0442);
+      --warning-fill: oklch(0.97214633 0.06584570 101.0111);
+      --success-fill: oklch(0.95744490 0.04868086 151.6343);
+      --danger-fill: oklch(0.95547614 0.02201662 24.4377);
+      --disabled-foreground: oklch(0.59711030 0.01806708 285.8399);
+      --disabled-fill: oklch(0.96199996 0.00398619 286.3246);
+      --read-only-fill: oklch(0.96800052 0.00397997 286.3252);
+      --text-selection: oklch(0.86510180 0.06193292 252.2482);
+      --find-match: oklch(0.92984296 0.13359650 98.3318);
+      --find-match-active: oklch(0.88074680 0.16330015 91.5922);
     }
   }
   :root[data-accent=crimson] { --accent: oklch(0.37536078 0.12835748 15.2251); --action: oklch(0.56158302 0.20011387 17.9319); --action-hover: oklch(0.57818102 0.20021808 17.8009); --action-pressed: oklch(0.54476164 0.20020681 18.0277); --selection-indicator: oklch(0.58563984 0.21167116 17.4767); --focus: oklch(0.6798201 0.21343679 12.5843); }
@@ -247,6 +371,61 @@
   }
 }
 
+:root[data-theme=high-contrast] {
+  --bg: #010409;
+  --surface: #0A0C10;
+  --raised: #191C20;
+  --selected: #272B33;
+  --fg: #FFFFFF;
+  --muted: #F0F3F6;
+  --border: #F0F3F6;
+  --accent: #0A2A5E;
+  --accent-foreground: #FFFFFF;
+  --selection-indicator: #79C0FF;
+  --focus: #FFD33D;
+  --action: #0A5A23;
+  --action-hover: #0B6128;
+  --action-pressed: #064817;
+  --action-foreground: #FFFFFF;
+  --progress: #F0F3F6;
+  --info: #CAE8FF;
+  --warning: #FFB757;
+  --success: #72F088;
+  --danger: #FFB1AF;
+  --material-rim: #7A828E;
+  --material-shade: #000000;
+  --edge: #9EA7B3;
+  --grid: #0F1318;
+  --surround: #0C0C0C;
+  --selected-strong: #3D444D;
+  --hover: #20242B;
+  --pressed: #2E333B;
+  --info-fill: #0C2D6B;
+  --warning-fill: #3A2A00;
+  --success-fill: #0A3318;
+  --danger-fill: #4C1A1A;
+  --disabled-foreground: #9EA7B3;
+  --disabled-fill: #0A0C10;
+  --read-only-fill: #11151B;
+  --text-selection: #1F4E8F;
+  --find-match: #5C4A00;
+  --find-match-active: #8A5B00;
+  color-scheme: dark;
+  --material-shadow: 0 2px 3px #0003;
+  --syntax-keyword: #FF9492;
+  --syntax-string: #ADDCFF;
+  --syntax-function: #DBB7FF;
+  --syntax-constant: #91CBFF;
+  --syntax-comment: #BDC4CC;
+  --syntax-variable: #FFB757;
+  --syntax-tag: #72F088;
+  --syntax-type-name: #F0B72F;
+  --elevation-popup: 0 4px 8px #0006;
+  --elevation-tooltip: 0 2px 6px #0006;
+  --elevation-dialog: 0 8px 24px #000A;
+  --scrim: #000000B3;
+}
+
 @media (forced-colors: active) {
-  :root { --selection-indicator: Highlight !important; --focus: Highlight !important; --grid: Canvas !important; --edge: CanvasText !important; }
+  :root { --selection-indicator: Highlight !important; --focus: Highlight !important; --grid: Canvas !important; --edge: CanvasText !important; --bg: Canvas !important; --surface: Canvas !important; --raised: Canvas !important; --selected: Canvas !important; --selected-strong: Canvas !important; --hover: Canvas !important; --pressed: Canvas !important; --fg: CanvasText !important; --muted: CanvasText !important; --border: ButtonBorder !important; --accent: Highlight !important; --accent-foreground: HighlightText !important; --action: ButtonFace !important; --action-hover: ButtonFace !important; --action-pressed: ButtonFace !important; --action-foreground: ButtonText !important; --progress: Highlight !important; --info: CanvasText !important; --warning: CanvasText !important; --success: CanvasText !important; --danger: CanvasText !important; --info-fill: Canvas !important; --warning-fill: Canvas !important; --success-fill: Canvas !important; --danger-fill: Canvas !important; --disabled-foreground: GrayText !important; --disabled-fill: Canvas !important; --read-only-fill: Canvas !important; --text-selection: Highlight !important; --find-match: Mark !important; --find-match-active: Highlight !important; --material-rim: CanvasText !important; --material-shade: Canvas !important; --surround: Canvas !important; }
 }

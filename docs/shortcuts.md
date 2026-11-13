@@ -50,7 +50,7 @@ The status bar shows up to six hints for the focused region, in the form `Key Ac
 | Keys | Up/Down to move, Enter to run, Esc to close |
 | Scope | Everything the app can do, including settings and modes |
 
-The palette complements visible controls. It never replaces them.
+The palette complements visible controls. It never replaces them. The command registry, scopes and ranking are in [command palette registry](command-palette.md).
 
 ## Check
 

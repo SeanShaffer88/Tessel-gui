@@ -1,4 +1,4 @@
-# Audit · revision 1
+# Audit · revision 1, extended for 1.4.0
 
 Design review of the standard before its first release, with the evidence. Method: read the README, guidelines, materials, tokens, mockups and demos; measured token contrast with WCAG relative luminance; rebuilt and tested the exports.
 
@@ -14,8 +14,23 @@ Design review of the standard before its first release, with the evidence. Metho
 | 8 | Lists of records read consistently | Pass. Gridlines, fixed header, selected-row bar, tested against edge and selection tokens | `docs/data-lists.md` |
 | 9 | Licensing separates code from content | Pass. MIT for code and exports; CC BY 4.0 for documentation and images | `LICENSE-CODE` |
 
+## Revision 2 additions (1.4.0)
+
+| # | Check | Result | Evidence |
+| --- | --- | --- | --- |
+| 10 | Every theme defines every role | Pass. Dark, Light and High Contrast carry all 38 roles | `demo/extended.test.mjs` |
+| 11 | High Contrast reaches 7:1 for text, status, selection and focus on every surface | Pass. The primary action uses a border instead of a 3:1 fill | Tests, `docs/materials.md` |
+| 12 | New fills and syntax colors stay legible | Pass. Status text on fills, content on hover, pressed and strong selection, and syntax on all four surfaces | Tests |
+| 13 | No key binding is claimed twice | Pass across shortcuts, layout presets and canvas zoom, with mode switching left free | Tests |
+| 14 | Component and interaction specs have measurable values | Pass for focus rings, tables, navigation, status bar, states, command palette, layouts, canvas, undo and inline feedback | Tests |
+| 15 | Packages match the source | Pass. npm and Rust packages are generated and compared in tests | `tools/build-tokens.mjs --check` |
+| 16 | The contrast checker agrees with the tests | Pass. Its helper tests run every shipped theme and one failing edit | `demo/contrast/contrast.test.mjs` |
+
 ## Not done
 
 - Protanopia and other color-vision simulation.
 - Screen-reader, keyboard and zoom passes on the category demo.
-- Real Windows high-contrast verification of the `HighContrast` XAML mapping.
+- Real Windows high-contrast verification of the `HighContrast` XAML mapping and `Tessel.HighContrast.xaml`.
+- Screen-reader and keyboard passes on the contrast checker.
+- Publishing the npm package and the crate to their registries.
+- Mockup canvas artwork was not recolored; the dark mockups were remapped by palette, so rare antialiasing pixels may differ from a fresh render.

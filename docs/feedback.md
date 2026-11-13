@@ -2,6 +2,9 @@
 
 How a product tells the user what happened. The rules live in [`tokens.json`](tokens.json) under `feedback` and are exported in the DTCG file. Status colors are the existing `info`, `success`, `warning` and `danger` roles.
 
+
+Related: [undo and inline feedback](undo-and-feedback.md) covers the undo model, the undo toast and quiet inline validation.
+
 ## Severity
 
 Color never carries severity alone. Every message has an icon and text.

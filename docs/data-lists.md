@@ -40,6 +40,19 @@ A data list fills its region. It shows as many rows as fit and scrolls or virtua
 
 Give the list an accessible name, expose it as a grid (or table) with row and column counts, and announce the selected row.
 
+## Dense tables
+
+Tables with many columns add the rules below. Values are the `table` section of [tokens.json](tokens.json).
+
+| Part | Rule |
+| --- | --- |
+| Header | Sticky, 28 px. A sorted column shows an arrow and `aria-sort`. Sorting cycles ascending, descending, none |
+| Column resize | An 8 px grip with the `col-resize` cursor. Double-click fits the column to its content. Keyboard: Alt+Left and Alt+Right resize by 8 px, with Shift for 32 px |
+| Cells | 8 px horizontal padding. Numbers right-aligned in tabular figures, with the header aligned the same way |
+| Rows | Compact density. No stripes. Hover uses the `hover` fill and selection uses `selected` with the leading bar |
+| Selection | Shift+Click and Shift+Arrow extend a range, Ctrl/⌘+Click and Ctrl/⌘+Space toggle, Ctrl/⌘+A selects all |
+| Focus | One cell or row has the inset [focus ring](focus-rings.md). Arrow keys move it |
+
 ## Not a data list
 
 Menus, tab bars, toolbars and short fixed option lists do not take gridlines. Use plain rows with the selected-row marker.

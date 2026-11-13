@@ -31,6 +31,19 @@
         <Color x:Key="VgEdgeColor">#7A828E</Color>
         <Color x:Key="VgGridColor">#0F1318</Color>
         <Color x:Key="VgSurroundColor">#0C0C0C</Color>
+        <Color x:Key="VgSelectedStrongColor">#40454D</Color>
+        <Color x:Key="VgHoverColor">#20242B</Color>
+        <Color x:Key="VgPressedColor">#2E333B</Color>
+        <Color x:Key="VgInfoFillColor">#0C2D6B</Color>
+        <Color x:Key="VgWarningFillColor">#3A2A00</Color>
+        <Color x:Key="VgSuccessFillColor">#0A3318</Color>
+        <Color x:Key="VgDangerFillColor">#4C1A1A</Color>
+        <Color x:Key="VgDisabledForegroundColor">#7A828E</Color>
+        <Color x:Key="VgDisabledFillColor">#0A0C10</Color>
+        <Color x:Key="VgReadOnlyFillColor">#11151B</Color>
+        <Color x:Key="VgTextSelectionColor">#1F4E8F</Color>
+        <Color x:Key="VgFindMatchColor">#5C4A00</Color>
+        <Color x:Key="VgFindMatchActiveColor">#8A5B00</Color>
       </ResourceDictionary>
       <ResourceDictionary x:Key="Light">
         <Color x:Key="VgBackgroundColor">#EDEDF0</Color>
@@ -58,6 +71,19 @@
         <Color x:Key="VgEdgeColor">#B8B8BD</Color>
         <Color x:Key="VgGridColor">#F2F2F5</Color>
         <Color x:Key="VgSurroundColor">#D6D6D6</Color>
+        <Color x:Key="VgSelectedStrongColor">#CACAD3</Color>
+        <Color x:Key="VgHoverColor">#D5D5DD</Color>
+        <Color x:Key="VgPressedColor">#C9C9D3</Color>
+        <Color x:Key="VgInfoFillColor">#DDF4FF</Color>
+        <Color x:Key="VgWarningFillColor">#FFF8C5</Color>
+        <Color x:Key="VgSuccessFillColor">#DAFBE1</Color>
+        <Color x:Key="VgDangerFillColor">#FFEBE9</Color>
+        <Color x:Key="VgDisabledForegroundColor">#7E7E8A</Color>
+        <Color x:Key="VgDisabledFillColor">#F2F2F5</Color>
+        <Color x:Key="VgReadOnlyFillColor">#F4F4F7</Color>
+        <Color x:Key="VgTextSelectionColor">#B6D6FB</Color>
+        <Color x:Key="VgFindMatchColor">#FFE97A</Color>
+        <Color x:Key="VgFindMatchActiveColor">#FFD33D</Color>
       </ResourceDictionary>
       <ResourceDictionary x:Key="HighContrast">
         <StaticResource x:Key="VgBackgroundColor" ResourceKey="SystemColorWindowColor" />
@@ -85,6 +111,19 @@
         <StaticResource x:Key="VgEdgeColor" ResourceKey="SystemColorWindowTextColor" />
         <StaticResource x:Key="VgGridColor" ResourceKey="SystemColorWindowColor" />
         <StaticResource x:Key="VgSurroundColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgSelectedStrongColor" ResourceKey="SystemColorHighlightColor" />
+        <StaticResource x:Key="VgHoverColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgPressedColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgInfoFillColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgWarningFillColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgSuccessFillColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgDangerFillColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgDisabledForegroundColor" ResourceKey="SystemColorGrayTextColor" />
+        <StaticResource x:Key="VgDisabledFillColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgReadOnlyFillColor" ResourceKey="SystemColorWindowColor" />
+        <StaticResource x:Key="VgTextSelectionColor" ResourceKey="SystemColorHighlightColor" />
+        <StaticResource x:Key="VgFindMatchColor" ResourceKey="SystemColorHighlightColor" />
+        <StaticResource x:Key="VgFindMatchActiveColor" ResourceKey="SystemColorHighlightColor" />
       </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
   <SolidColorBrush x:Key="VgBackgroundBrush" Color="{ThemeResource VgBackgroundColor}" />
@@ -112,6 +151,19 @@
   <SolidColorBrush x:Key="VgEdgeBrush" Color="{ThemeResource VgEdgeColor}" />
   <SolidColorBrush x:Key="VgGridBrush" Color="{ThemeResource VgGridColor}" />
   <SolidColorBrush x:Key="VgSurroundBrush" Color="{ThemeResource VgSurroundColor}" />
+  <SolidColorBrush x:Key="VgSelectedStrongBrush" Color="{ThemeResource VgSelectedStrongColor}" />
+  <SolidColorBrush x:Key="VgHoverBrush" Color="{ThemeResource VgHoverColor}" />
+  <SolidColorBrush x:Key="VgPressedBrush" Color="{ThemeResource VgPressedColor}" />
+  <SolidColorBrush x:Key="VgInfoFillBrush" Color="{ThemeResource VgInfoFillColor}" />
+  <SolidColorBrush x:Key="VgWarningFillBrush" Color="{ThemeResource VgWarningFillColor}" />
+  <SolidColorBrush x:Key="VgSuccessFillBrush" Color="{ThemeResource VgSuccessFillColor}" />
+  <SolidColorBrush x:Key="VgDangerFillBrush" Color="{ThemeResource VgDangerFillColor}" />
+  <SolidColorBrush x:Key="VgDisabledForegroundBrush" Color="{ThemeResource VgDisabledForegroundColor}" />
+  <SolidColorBrush x:Key="VgDisabledFillBrush" Color="{ThemeResource VgDisabledFillColor}" />
+  <SolidColorBrush x:Key="VgReadOnlyFillBrush" Color="{ThemeResource VgReadOnlyFillColor}" />
+  <SolidColorBrush x:Key="VgTextSelectionBrush" Color="{ThemeResource VgTextSelectionColor}" />
+  <SolidColorBrush x:Key="VgFindMatchBrush" Color="{ThemeResource VgFindMatchColor}" />
+  <SolidColorBrush x:Key="VgFindMatchActiveBrush" Color="{ThemeResource VgFindMatchActiveColor}" />
   <FontFamily x:Key="VgFontSans">Segoe UI</FontFamily>
   <FontFamily x:Key="VgFontMono">Cascadia Mono</FontFamily>
   <x:Double x:Key="VgFontSizeCaption">11</x:Double>

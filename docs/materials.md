@@ -39,13 +39,61 @@ Use at most one accent element per region. Do not use the brand accent for data 
 Keep theme and accent color as independent choices. A preset recolors the deep accent, the primary action, the selection marker and the focus outline together, so a Blue or Teal product has no green buttons. GitHub uses the base theme values. Graphite is a neutral preset for color-critical work: its action, selection, focus and accent carry no visible tint. Semantic colors, edges and surfaces do not change.
 | Preset | Dark action | Dark selection | Dark focus | Light action | Light selection | Light focus |
 | --- | --- | --- | --- | --- | --- | --- |
-| GitHub (default) | `#1A7F37` | `#2F81F7` | `#79B8FF` | `#1A7F37` | `#0969DA` | `#0550AE` |
-| Crimson | `#D02946` | `#DC2749` | `#FF4D73` | `#B40234` | `#9E1534` | `#D61F45` |
+| GitHub (default) | `#1A7F37` | `#409EFF` | `#71B7FF` | `#1A7F37` | `#0969DA` | `#0550AE` |
+| Crimson | `#D02946` | `#DD294B` | `#FF4D73` | `#B40234` | `#9E1534` | `#D61F45` |
 | Blue | `#036DCD` | `#5FA8FF` | `#ACD1FF` | `#0059AA` | `#1558A6` | `#327AD1` |
 | Teal | `#027B74` | `#37B7AF` | `#8FE4D9` | `#08645E` | `#00665F` | `#13877F` |
 | Graphite | `#6D6D74` | `#94949C` | `#DCDCE3` | `#585860` | `#585860` | `#75757D` |
 
 Web consumers set `data-accent` on the document root alongside `data-theme`. The generated CSS resolves Light, Dark and System and uses `Highlight` for both cues in forced colors. Native consumers keep the base dark and light palette API and apply the preset overrides for the effective theme. Store a validated preset ID and fall back to GitHub when it is missing or unknown. Alternate sRGB values are in `color.accentPresets` in the [generated DTCG JSON](../dist/tessel.tokens.json) and as sRGB and OKLCH in the [source tokens](tokens.json).
+
+### State and editing roles
+
+These roles carry the states that need more than `selected`. Columns: Dark, Light, High Contrast.
+
+| Role | CSS token | Dark | Light | High Contrast | Application |
+| --- | --- | --- | --- | --- | --- |
+| Strong selection | `--selected-strong` | `#40454D` | `#CACAD3` | `#3D444D` | Explorer-style selected row when the list has focus elsewhere, and the active item in a tree |
+| Hover | `--hover` | `#20242B` | `#D5D5DD` | `#20242B` | Secondary control and row hover |
+| Pressed | `--pressed` | `#2E333B` | `#C9C9D3` | `#2E333B` | Secondary control while pressed |
+| Info fill | `--info-fill` | `#0C2D6B` | `#DDF4FF` | `#0C2D6B` | Banner or tag behind `info` text |
+| Warning fill | `--warning-fill` | `#3A2A00` | `#FFF8C5` | `#3A2A00` | Banner or tag behind `warning` text |
+| Success fill | `--success-fill` | `#0A3318` | `#DAFBE1` | `#0A3318` | Banner or tag behind `success` text |
+| Error fill | `--danger-fill` | `#4C1A1A` | `#FFEBE9` | `#4C1A1A` | Banner or tag behind `danger` text |
+| Disabled label | `--disabled-foreground` | `#7A828E` | `#7E7E8A` | `#9EA7B3` | Label of a disabled control. At least 3:1 on its fill; WCAG exempts disabled controls |
+| Disabled fill | `--disabled-fill` | `#0A0C10` | `#F2F2F5` | `#0A0C10` | Fill of a disabled control, with a dashed `border` |
+| Read-only fill | `--read-only-fill` | `#11151B` | `#F4F4F7` | `#11151B` | Fields that show a value but cannot be edited |
+| Text selection | `--text-selection` | `#1F4E8F` | `#B6D6FB` | `#1F4E8F` | Selected text. `foreground` stays 4.5:1 on it |
+| Find match | `--find-match` | `#5C4A00` | `#FFE97A` | `#5C4A00` | Every match of a find or search |
+| Active find match | `--find-match-active` | `#8A5B00` | `#FFD33D` | `#8A5B00` | The current match |
+
+Status fills pair with their text role: `info` on `infoFill`, `warning` on `warningFill`, `success` on `successFill` and `danger` on `dangerFill`, each at least 4.5:1 (tested). A banner still needs an icon and a label.
+
+## High Contrast theme
+
+A fourth theme for low vision, bright rooms and long sessions. It keeps the dark surfaces and raises everything else: text is `#FFFFFF` and `#F0F3F6`, borders are `#F0F3F6`, edges are `#9EA7B3` (at least 5:1), the selection marker is `#79C0FF`, focus is `#FFD33D`, and every text, status, selection and focus color reaches 7:1 on every surface. Set `data-theme="high-contrast"`. Operating-system contrast themes still win: in forced colors every role maps to a system color.
+
+The primary action cannot reach 7:1 for its label and 3:1 for its fill on black at once, so in High Contrast it keeps a deep green fill (`#0A5A23`, label 8.4:1) and gains a 2px `border` outline. The deep accent is `#0A2A5E`. High Contrast has no OKLCH encoding and reuses the dark syntax colors, which measure at least 6.7:1 on every surface.
+
+## Syntax colors
+
+Code and log text has its own set so it never borrows the brand accent or a status color by accident. Roles: `keyword`, `string`, `function`, `constant`, `comment`, `variable`, `tag`, `typeName`. Dark values come from GitHub Dark High Contrast (`#FF9492`, `#ADDCFF`, `#DBB7FF`, `#91CBFF`, `#BDC4CC`, `#FFB757`, `#72F088`, `#F0B72F`). Light values are `#B71C28`, `#0A3069`, `#6639BA`, `#0550AE`, `#57606A`, `#953800`, `#116329`, `#7D4E00`. Each reaches 4.5:1 on all four surfaces of its theme. CSS: `--syntax-keyword` and so on.
+
+## Elevation
+
+Floating layers use a fill, a 1px edge and a shadow. The shadow adds depth but never replaces the edge.
+
+| Level | Fill | Edge | Dark shadow | Light shadow | Use |
+| --- | --- | --- | --- | --- | --- |
+| Popup (z 100) | `raised` | `edge` | `0 4px 8px #0006` | `0 4px 8px #0000001F` | Menus, dropdowns, context menus |
+| Tooltip (z 200) | `selected` | `border` | `0 2px 6px #0006` | `0 2px 6px #0000001F` | Tooltips and hints |
+| Dialog (z 300) | `raised` | `border` | `0 8px 24px #000A` | `0 8px 24px #00000033` | Modal dialogs and sheets |
+
+A modal dialog sits on a scrim (`--scrim`: `#000000B3` dark, `#00000066` light). CSS: `--elevation-popup`, `--elevation-tooltip`, `--elevation-dialog`.
+
+## Accent tints
+
+Quiet region fills come from mixing an accent into the background in OKLab at 8%, 16% and 24%: `--selection-indicator-tint-1..3` and `--action-tint-1..3`. A tint is a fill, never a label color. Body text on every tint stays at least 4.5:1 in all three themes (tested). The DTCG export lists the computed hex values.
 
 ## Grid signature
 

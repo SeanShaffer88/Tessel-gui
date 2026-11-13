@@ -2,7 +2,7 @@
 
 A dense, tactile interface standard for desktop software of any kind, in dark and light.
 
-[![Validation status](https://github.com/SeanShaffer88/TesselGUI/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/SeanShaffer88/TesselGUI/actions/workflows/validate.yml) · [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Category layouts](https://seanshaffer88.github.io/TesselGUI/demo/categories/) · [Quick reference](docs/quick-reference.md) · Docs [CC BY 4.0](LICENSE) · Code and tokens [MIT](LICENSE-CODE)
+[![Validation status](https://github.com/SeanShaffer88/TesselGUI/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/SeanShaffer88/TesselGUI/actions/workflows/validate.yml) · [Live demo](https://seanshaffer88.github.io/TesselGUI/demo/) · [Category layouts](https://seanshaffer88.github.io/TesselGUI/demo/categories/) · [Contrast checker](https://seanshaffer88.github.io/TesselGUI/demo/contrast/) · [Quick reference](docs/quick-reference.md) · Docs [CC BY 4.0](LICENSE) · Code and tokens [MIT](LICENSE-CODE)
 
 > [!NOTE]
 > Tessel is for engineers and designers building desktop-class editors,
@@ -91,7 +91,7 @@ Image and video tools use the Graphite preset so no tinted chrome sits next to t
 
 See [workspace patterns](docs/workspaces.md) for modes, panels, value controls, timelines and meters.
 
-Cross-cutting rules: [motion](docs/motion.md), [typography](docs/typography.md), [shortcuts and the command palette](docs/shortcuts.md) and [feedback patterns](docs/feedback.md).
+Cross-cutting rules: [motion](docs/motion.md), [typography](docs/typography.md), [shortcuts and the command palette](docs/shortcuts.md), [feedback patterns](docs/feedback.md), [focus rings](docs/focus-rings.md), [tabs, trees and breadcrumbs](docs/navigation.md), [status bar](docs/status-bar.md), [empty, loading and error states](docs/states.md), [command palette registry](docs/command-palette.md), [layouts and docking](docs/layouts.md), [infinite canvas](docs/canvas.md) and [undo and inline feedback](docs/undo-and-feedback.md).
 
 
 ## Design decisions
@@ -119,7 +119,7 @@ keyboard, screen-reader and reduced-motion testing in your application.
 - Pick a layout in [category layouts](docs/categories.md). For multi-mode creative tools, add [workspaces](docs/workspaces.md) and review against the [polish checklist](docs/polish.md).
 - Use the [CSS custom properties](demo/tokens.css) or [JSON tokens](docs/tokens.json). Choose states with the [materials guide](docs/materials.md).
 - Adopting the standard in a project: [adoption guide](docs/adoption.md).
-- Native apps: take a generated export from [`dist/`](dist/): [DTCG JSON](dist/tessel.tokens.json), [WinUI 3](dist/Tessel.xaml), WPF [dark](dist/Tessel.Dark.xaml)/[light](dist/Tessel.Light.xaml), [Rust](dist/tessel.rs), [Slint](dist/Tessel.slint) and [Godot](dist/tessel_tokens.gd). All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`.
+- Native apps: take a generated export from [`dist/`](dist/): [DTCG JSON](dist/tessel.tokens.json), [WinUI 3](dist/Tessel.xaml), WPF [dark](dist/Tessel.Dark.xaml)/[light](dist/Tessel.Light.xaml), [Rust](dist/tessel.rs), [Slint](dist/Tessel.slint) and [Godot](dist/tessel_tokens.gd). Also [WPF High Contrast](dist/Tessel.HighContrast.xaml), the [npm package](packages/npm/) and the [Rust crate](packages/rust/). All are generated from `docs/tokens.json` by `node tools/build-tokens.mjs`. Updating from an earlier release: [migration notes](docs/migration.md).
 - Use the [compact workflow recipes](docs/workflow-recipes.md) for forms, review paging, progress and recovery, or try the [PortableForge reference](https://seanshaffer88.github.io/TesselGUI/demo/portableforge/).
 - Run the demos with the [local setup](demo/README.md).
 - Read the [changelog](CHANGELOG.md), [audit](AUDIT.md), [contribution guide](CONTRIBUTING.md), [credits](CREDITS.md) and [attribution](ATTRIBUTION.md).
